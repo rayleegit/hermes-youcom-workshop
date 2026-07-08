@@ -1,0 +1,20 @@
+{
+  "output": {
+    "content": "{\"signals\": [{\"signal\": \"Instinct MI350 Series Expansion\", \"why_it_matters\": \"AMD is pushing deeper into enterprise AI data centers with higher-density accelerators, creating new buying triggers for training and inference clusters.\", \"recommended_action\": \"Prepare data center AI roadmap talking points and workload-fit questions for the next customer meeting.\"}, {\"signal\": \"Data Center Revenue Growth\", \"why_it_matters\": \"Strong financial momentum in data center suggests budget availability for platform expansion and multi-rack AI deployments.\", \"recommended_action\": \"Position proposals as phased cluster rollouts tied to measurable workload milestones.\"}, {\"signal\": \"Cloud Ecosystem Partnerships\", \"why_it_matters\": \"Expanded hyperscaler collaboration strengthens AMD's CPU + GPU + software narrative and may influence technical evaluation criteria.\", \"recommended_action\": \"Coordinate with solutions engineering on reference architectures and ROCm portability proof points.\"}]}",
+    "content_type": "application/json",
+    "sources": [
+      {
+        "title": "AMD Instinct MI350 Series Expansion",
+        "url": "https://www.amd.com/en/newsroom/press-releases/2025-06-12-amd-expands-instinct-mi350-series.html"
+      },
+      {
+        "title": "AMD Q1 2025 Earnings",
+        "url": "https://ir.amd.com/news-events/press-releases/detail/1234/amd-reports-first-quarter-2025-financial-results"
+      },
+      {
+        "title": "AMD Azure AI Partnership",
+        "url": "https://www.amd.com/en/newsroom/press-releases/2025-05-20-amd-microsoft-azure-ai-partnership.html"
+      }
+    ]
+  }
+}

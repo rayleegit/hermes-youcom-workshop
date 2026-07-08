@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Account Action Brief Workshop</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-icon">⚡</span>
+      <div>
+        <h1>Account Action Brief Workshop</h1>
+        <p class="subtitle">You.com evidence + Hermes workflow = governed, reusable <code>/account-action-brief</code></p>
+      </div>
+    </div>
+    <div class="status-bar">
+      <button class="btn btn-ghost btn-sm" id="express-toggle" title="Switch between 60-min live and full deep-dive track">Deep Dive Track</button>
+      <button class="btn btn-ghost btn-sm" id="presenter-toggle" title="Hide facilitator notes for screen share">Presenter Mode</button>
+      <span id="demo-badge" class="badge hidden">Demo Mode</span>
+      <span id="live-badge" class="badge badge-live hidden">Live API</span>
+      <span id="timer" class="timer">0:00</span>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="sidebar" id="step-nav">
+      <h2>Workshop Steps</h2>
+      <ul id="step-list"></ul>
+      <div class="sidebar-footer">
+        <button class="btn btn-ghost btn-sm" id="reset-btn">Reset Session</button>
+      </div>
+    </nav>
+
+    <main class="content">
+      <div class="step-header">
+        <span class="phase-tag" id="phase-tag">Setup</span>
+        <h2 id="step-title">Loading…</h2>
+        <p class="step-meta"><span id="step-number"></span> · <span id="step-minutes"></span> min</p>
+      </div>
+
+      <section class="card hidden" id="express-cuts-panel">
+        <h3>60-Minute Live Workshop</h3>
+        <p class="hint">Live = full story in one hour: <strong>platform playground</strong> for You.com APIs, <strong>live Hermes setup</strong> (define inputs in Hermes). Close = join Discord only.</p>
+        <ul id="express-cuts-list"></ul>
+      </section>
+
+      <section class="card post-event-card hidden" id="post-event-panel">
+        <h3>After the Event — Go Deeper</h3>
+        <p class="hint" id="post-event-summary"></p>
+        <div id="post-event-paths"></div>
+        <p class="hint" style="margin-top:12px">Full guide: <code>workshop-app/POST-EVENT-LEARNING.md</code></p>
+      </section>
+
+      <section class="card platform-spotlight" id="platform-spotlight">
+        <h3>Platform Spotlight</h3>
+        <p class="story-headline" id="story-headline"></p>
+        <div class="platform-columns">
+          <div class="platform-card youcom-card">
+            <div class="platform-label">You.com</div>
+            <p class="platform-tagline">Live intelligence layer</p>
+            <p class="platform-step-highlight" id="youcom-highlight"></p>
+            <ul class="platform-features" id="youcom-features"></ul>
+          </div>
+          <div class="platform-card hermes-card">
+            <div class="platform-label">Hermes</div>
+            <p class="platform-tagline">Workflow layer</p>
+            <p class="platform-step-highlight" id="hermes-highlight"></p>
+            <ul class="platform-features" id="hermes-features"></ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="card hidden" id="api-matrix-panel">
+        <h3>You.com API Decision Matrix</h3>
+        <p class="hint">Each API has one job. Hermes orchestrates the chain.</p>
+        <div id="api-matrix-table"></div>
+      </section>
+
+      <section class="card hidden" id="lifecycle-panel">
+        <h3>Hermes Workflow Lifecycle</h3>
+        <div class="lifecycle-track" id="lifecycle-track"></div>
+      </section>
+
+      <section class="card hidden" id="opening-script-panel">
+        <h3>Opening Script</h3>
+        <pre id="opening-script" class="script-block"></pre>
+      </section>
+
+      <section class="card hidden" id="schema-panel">
+        <h3>Output Schema (Hermes enforces this every run)</h3>
+        <pre id="output-schema" class="markdown-preview"></pre>
+      </section>
+
+      <section class="card facilitator-card" id="facilitator-panel">
+        <h3>Facilitator Notes</h3>
+        <p id="facilitator-text"></p>
+        <ul id="talking-points"></ul>
+      </section>
+
+      <section class="card audience-card">
+        <h3>Audience Action</h3>
+        <p id="audience-action"></p>
+      </section>
+
+      <section class="card learn-more-card hidden" id="learn-more-panel">
+        <h3>Learn More</h3>
+        <p class="hint" id="learn-more-intro">Expand a topic for setup commands, templates, and facilitator depth.</p>
+        <div id="learn-more-content"></div>
+      </section>
+
+      <section class="card form-card" id="inputs-section">
+        <h3>Workflow Inputs</h3>
+        <div class="form-grid">
+          <label>
+            Company name *
+            <input type="text" id="company" value="AMD" />
+          </label>
+          <label>
+            Website (optional)
+            <input type="text" id="website" value="https://www.amd.com" />
+          </label>
+          <label class="full-width">
+            Brief goal / focus
+            <span class="hint">Tailors Search and Research queries. Pick a preset or write your own.</span>
+            <div class="goal-presets" id="goal-presets" aria-label="Brief goal presets"></div>
+            <textarea id="workflow-goal" rows="2">Prepare for an upcoming customer meeting — understand recent strategic signals and decide what actions the account team should consider.</textarea>
+          </label>
+          <label class="full-width">
+            Workflow job (one sentence)
+            <textarea id="job" rows="2">When I am preparing for a customer meeting, I need a current account brief, so I can enter the call with relevant business context and suggested next actions.</textarea>
+          </label>
+          <label>
+            Primary user role
+            <input type="text" id="primary-user" value="Account owner or customer-facing team" />
+          </label>
+          <label>
+            Workflow owner
+            <input type="text" id="workflow-owner" placeholder="Name or team" />
+          </label>
+        </div>
+        <button class="btn btn-secondary" id="save-inputs-btn">Save Inputs</button>
+      </section>
+
+      <section class="card form-card hidden" id="context-section">
+        <h3>Internal Context (Sanitized)</h3>
+        <textarea id="internal-context" rows="5" placeholder="Account segment, relationship stage, opportunity notes, approved positioning…"></textarea>
+        <div class="btn-group">
+          <button class="btn btn-secondary" id="load-sample-context-btn">Load Sample Context</button>
+          <button class="btn btn-secondary" id="save-context-btn">Save Context</button>
+        </div>
+      </section>
+
+      <section class="card form-card hidden" id="drafts-section">
+        <h3>Sample Drafts (Hermes draft-only connectors)</h3>
+        <details><summary>Slack review request</summary><pre id="sample-slack" class="markdown-preview"></pre></details>
+        <details><summary>CRM update draft</summary><pre id="sample-crm" class="markdown-preview"></pre></details>
+        <details><summary>Outreach draft (blocked until external approval)</summary><pre id="sample-outreach" class="markdown-preview"></pre></details>
+      </section>
+
+      <section class="card form-card hidden" id="connector-section">
+        <h3>Connector Map</h3>
+        <p class="hint">List which tools this workflow may <strong>read</strong>, which may only <strong>draft</strong> (human sends), and what is <strong>blocked</strong>. You.com APIs are always read-only; CRM/Slack/email stay draft-only in the first pilot.</p>
+        <details class="inline-drilldown">
+          <summary>Quick reference — three permission buckets</summary>
+          <div id="connector-quick-ref"></div>
+        </details>
+        <label>Read-only tools <input type="text" id="read-tools" placeholder="You.com Search, Contents, Research; CRM read; internal docs" /></label>
+        <label>Draft-only tools <input type="text" id="draft-tools" placeholder="Email draft, Slack review request, CRM update draft" /></label>
+        <label>Blocked tools / data <input type="text" id="blocked-tools" placeholder="Sensitive customer data, PII, unapproved legal language, auto-send" /></label>
+        <button class="btn btn-secondary" id="save-connectors-btn">Save Connector Map</button>
+      </section>
+
+      <section class="card form-card hidden" id="review-section">
+        <h3>Review Gates (Hermes)</h3>
+        <p class="hint">Set the review status. Hermes blocks external use until approved.</p>
+        <details class="inline-drilldown">
+          <summary>Quick reference — four states &amp; review checklist</summary>
+          <div id="review-quick-ref"></div>
+        </details>
+        <div class="review-states" id="review-states"></div>
+        <label class="full-width" style="margin-top:12px">
+          Selected status
+          <select id="review-status">
+            <option value="Draft">Draft</option>
+            <option value="Needs edits">Needs edits</option>
+            <option value="Approved for internal use">Approved for internal use</option>
+            <option value="Approved for external use">Approved for external use</option>
+          </select>
+        </label>
+      </section>
+
+      <section class="card form-card hidden" id="scorecard-section">
+        <h3>Quality Scorecard</h3>
+        <p class="hint">Score each dimension 0–3. Pilot only when averages are 2+.</p>
+        <div id="scorecard-fields"></div>
+      </section>
+
+      <section class="card form-card hidden" id="pilot-section">
+        <div class="results-header">
+          <h3>Team Rollout Template</h3>
+          <span class="badge-champion">Champions · optional</span>
+        </div>
+        <p class="hint" id="pilot-section-hint">
+          For RevOps/GTM leads taking this to a 5-user team pilot — <strong>not required</strong> for most attendees.
+          Default: join community and run 3 briefs. Fill this <strong>after Week 1</strong>, not tonight.
+        </p>
+        <div class="form-grid">
+          <label>Workflow owner <input type="text" id="pilot-owner" /></label>
+          <label>Pilot users <input type="text" id="pilot-users" value="5" /></label>
+          <label>Pilot accounts <input type="text" id="pilot-accounts" value="20" /></label>
+          <label class="full-width">Week 0 setup <input type="text" id="pilot-week0" /></label>
+          <label class="full-width">Week 1 goal <input type="text" id="pilot-week1" /></label>
+          <label class="full-width">Week 2 goal <input type="text" id="pilot-week2" /></label>
+          <label class="full-width">Success metrics <input type="text" id="pilot-metrics" /></label>
+          <label class="full-width">Expand criteria <input type="text" id="pilot-expand" /></label>
+        </div>
+        <button class="btn btn-secondary" id="save-pilot-btn">Save Rollout Template</button>
+        <button class="btn btn-ghost btn-sm" id="download-pilot-btn" style="margin-left:8px">Download .md</button>
+      </section>
+
+      <section class="card hidden" id="product-checklist-panel">
+        <h3>You.com Product Coverage Checklist</h3>
+        <p class="hint">Check each product as you walk APIs in the <strong>You.com platform playground</strong>. MCP is wired live during Hermes setup.</p>
+        <ul id="product-checklist" class="product-checklist"></ul>
+      </section>
+
+      <section class="card actions-card" id="api-actions">
+        <h3>Run API Step</h3>
+        <details class="inline-drilldown" id="api-setup-drilldown">
+          <summary>How to set up this API chain yourself (curl &amp; env)</summary>
+          <div id="api-setup-quick-ref"></div>
+        </details>
+        <div class="btn-group" id="api-buttons"></div>
+        <div class="btn-group" style="margin-top:10px">
+          <button class="btn btn-secondary" id="full-chain-btn">Run Full Demo Chain</button>
+        </div>
+        <p class="hint" id="api-hint"></p>
+      </section>
+
+      <section class="card results-card hidden" id="source-scoring">
+        <h3>Source Scoring</h3>
+        <p class="hint">Score each source: 3=strong, 2=usable, 1=weak, 0=do not use</p>
+        <div id="source-score-list"></div>
+      </section>
+
+      <section class="card results-card hidden" id="results-panel">
+        <div class="results-header">
+          <h3>API Results</h3>
+          <button class="btn btn-ghost btn-sm" id="toggle-raw">Show Raw JSON</button>
+        </div>
+        <div id="results-summary"></div>
+        <pre id="results-raw" class="hidden"></pre>
+      </section>
+
+      <section class="card results-card hidden" id="brief-panel">
+        <div class="results-header">
+          <h3>Generated Brief</h3>
+          <button class="btn btn-secondary btn-sm" id="copy-brief-btn">Copy</button>
+        </div>
+        <pre id="brief-content" class="markdown-preview"></pre>
+      </section>
+
+      <section class="card results-card hidden" id="card-panel">
+        <div class="results-header">
+          <h3>Workflow Card</h3>
+          <button class="btn btn-secondary btn-sm" id="download-card-btn">Download .md</button>
+        </div>
+        <pre id="card-content" class="markdown-preview"></pre>
+      </section>
+
+      <section class="card hidden" id="automation-explainer-card">
+        <details class="inline-drilldown open" id="automation-explainer-panel">
+          <summary>How Hermes automates this (app = manual demo · agent = automated)</summary>
+          <p class="hint" id="automation-summary"></p>
+          <ol id="automation-loop" class="community-list"></ol>
+          <div class="automation-columns">
+            <div>
+              <p class="deep-dive-code-label">Hermes automates</p>
+              <ul id="automation-does" class="verify-checklist"></ul>
+            </div>
+            <div>
+              <p class="deep-dive-code-label">You still do</p>
+              <ul id="automation-human" class="verify-checklist"></ul>
+            </div>
+          </div>
+        </details>
+      </section>
+
+      <section class="card agent-build-card hidden" id="agent-build-panel">
+        <div class="results-header">
+          <h3>Agent Build Lab</h3>
+          <div class="btn-group">
+            <button class="btn btn-secondary btn-sm" id="download-agent-kit-btn">Download Agent Kit</button>
+            <button class="btn btn-ghost btn-sm" id="reset-build-progress-btn">Reset progress</button>
+          </div>
+        </div>
+        <p class="hint" id="agent-build-subtitle">Build a working <code>/account-action-brief</code> skill in Hermes.</p>
+        <p class="hint" id="agent-build-scope"></p>
+        <div class="build-progress">
+          <div class="build-progress-bar" id="build-progress-bar"></div>
+          <span class="build-progress-label" id="build-progress-label">0 / 6 complete</span>
+        </div>
+        <div id="agent-build-steps"></div>
+        <details class="inline-drilldown" style="margin-top:14px">
+          <summary>Verification checklist — confirm before you leave</summary>
+          <ul id="agent-verify-list" class="verify-checklist"></ul>
+        </details>
+        <details class="inline-drilldown hermes-desktop-drilldown open" id="hermes-desktop-panel">
+          <summary>Hermes Desktop Skill Pack — install ready-made skills (recommended)</summary>
+          <p class="hint" id="hermes-desktop-intro"></p>
+          <div class="hermes-desktop-skills" id="hermes-desktop-skills"></div>
+          <div class="results-header" style="margin-top:10px">
+            <span class="deep-dive-code-label">Install command</span>
+            <button class="btn btn-secondary btn-sm" id="copy-install-cmd-btn">Copy</button>
+          </div>
+          <pre id="hermes-install-cmd" class="deep-dive-code compact"></pre>
+          <div class="btn-group" style="margin-top:10px">
+            <button class="btn btn-primary btn-sm" id="download-skill-pack-btn">Download Skill Pack (.zip)</button>
+            <button class="btn btn-secondary btn-sm" id="copy-test-cmd-btn">Copy test command</button>
+          </div>
+          <pre id="hermes-test-cmd" class="deep-dive-code compact" style="margin-top:8px"></pre>
+          <ul id="hermes-desktop-checklist" class="verify-checklist" style="margin-top:10px"></ul>
+        </details>
+        <details class="inline-drilldown" style="margin-top:10px">
+          <summary>MCP fallback — if You.com tools aren't wired in Hermes</summary>
+          <p class="hint" id="agent-fallback-note"></p>
+          <div class="results-header" style="margin-top:8px">
+            <span class="deep-dive-code-label">Evidence Bundle</span>
+            <button class="btn btn-secondary btn-sm" id="copy-evidence-build-btn">Copy</button>
+          </div>
+          <pre id="agent-evidence-bundle" class="markdown-preview" style="max-height:200px"></pre>
+        </details>
+      </section>
+
+      <section class="card results-card hidden" id="hermes-live-panel">
+        <h3>Hermes Live Demo (facilitator)</h3>
+        <p class="hint">For demo-only sessions. Attendees building hands-on should use Agent Build Lab above.</p>
+        <pre id="hermes-setup-checklist" class="script-block"></pre>
+        <div class="results-header" style="margin-top:12px">
+          <h3 style="margin:0;font-size:0.82rem;text-transform:uppercase;color:var(--text-muted)">Live Run Command</h3>
+          <button class="btn btn-secondary btn-sm" id="copy-run-command-btn">Copy</button>
+        </div>
+        <pre id="hermes-run-command" class="markdown-preview"></pre>
+        <div class="results-header" style="margin-top:12px">
+          <h3 style="margin:0;font-size:0.82rem;text-transform:uppercase;color:var(--text-muted)">Evidence Bundle (fallback if no MCP)</h3>
+          <button class="btn btn-secondary btn-sm" id="copy-evidence-btn">Copy</button>
+        </div>
+        <pre id="hermes-evidence-bundle" class="markdown-preview"></pre>
+      </section>
+
+      <section class="card results-card hidden" id="hermes-panel">
+        <div class="results-header">
+          <h3>Hermes Packaging Prompt</h3>
+          <button class="btn btn-secondary btn-sm" id="copy-hermes-btn">Copy</button>
+        </div>
+        <pre id="hermes-content" class="markdown-preview"></pre>
+      </section>
+
+      <section class="card community-card hidden" id="community-panel">
+        <div class="results-header">
+          <h3>Community Continuation</h3>
+          <button class="btn btn-secondary btn-sm" id="download-community-btn">Download Playbook</button>
+        </div>
+        <p class="hint" id="community-intro">Join the You.com Discord after the workshop — introduce yourself and say you joined from this event.</p>
+        <div id="community-links" class="community-links"></div>
+        <details class="inline-drilldown open" id="discord-intro-panel">
+          <summary>Intro post — copy into #introductions</summary>
+          <p class="hint" id="discord-intro-instructions"></p>
+          <div class="results-header" style="margin-top:8px">
+            <span class="deep-dive-code-label">Suggested intro</span>
+            <button class="btn btn-secondary btn-sm" id="copy-discord-intro-btn">Copy</button>
+          </div>
+          <pre id="discord-intro-template" class="deep-dive-code compact"></pre>
+        </details>
+        <details class="inline-drilldown" open>
+          <summary>After the workshop</summary>
+          <ol id="community-onboarding" class="community-list"></ol>
+          <div id="community-challenges"></div>
+        </details>
+        <details class="inline-drilldown">
+          <summary>API access after the workshop</summary>
+          <div id="community-api-paths"></div>
+        </details>
+        <details class="inline-drilldown">
+          <summary>For facilitators — message members via Hermes (/community-pulse)</summary>
+          <p class="hint" id="community-messaging-model"></p>
+          <div class="results-header" style="margin-top:8px">
+            <span class="deep-dive-code-label">Broadcast skill instruction</span>
+            <button class="btn btn-secondary btn-sm" id="copy-broadcast-skill-btn">Copy</button>
+          </div>
+          <pre id="broadcast-skill" class="deep-dive-code compact"></pre>
+          <div class="results-header" style="margin-top:8px">
+            <span class="deep-dive-code-label">Example run command</span>
+            <button class="btn btn-secondary btn-sm" id="copy-broadcast-cmd-btn">Copy</button>
+          </div>
+          <pre id="broadcast-command" class="deep-dive-code compact"></pre>
+        </details>
+      </section>
+
+      <section class="card hidden" id="closing-script-panel">
+        <h3>Closing Script</h3>
+        <pre id="closing-script" class="script-block"></pre>
+        <button class="btn btn-primary" id="download-all-btn">Download All Artifacts</button>
+      </section>
+
+      <div class="nav-buttons">
+        <button class="btn btn-ghost" id="prev-btn">← Previous</button>
+        <button class="btn btn-primary" id="next-btn">Next →</button>
+      </div>
+    </main>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

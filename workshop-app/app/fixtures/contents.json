@@ -1,0 +1,9 @@
+{
+  "results": [
+    {
+      "url": "https://www.amd.com/en/newsroom/press-releases/2025-06-12-amd-expands-instinct-mi350-series.html",
+      "title": "AMD Expands Instinct MI350 Series for Enterprise AI Data Centers",
+      "markdown": "# AMD Expands Instinct MI350 Series for Enterprise AI Data Centers\n\nAMD today announced an expanded Instinct MI350 Series portfolio designed for large-scale AI training and inference in enterprise and cloud environments.\n\n## Key Highlights\n\n- Higher memory bandwidth and compute density for generative AI workloads\n- Improved power efficiency for rack-scale deployments\n- Broader OEM and cloud partner availability in H2 2025\n- Enhanced software support through ROCm for popular AI frameworks\n\n\"Enterprise AI infrastructure needs both performance and deployability,\" said AMD leadership. \"MI350 is built for teams scaling from pilot clusters to production.\"\n\nThe portfolio targets hyperscalers, financial services, and regulated industries modernizing AI data centers."
+    }
+  ]
+}

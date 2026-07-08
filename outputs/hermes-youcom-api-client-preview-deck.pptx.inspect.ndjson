@@ -1,0 +1,324 @@
+{"kind":"deck","id":"pr/231nvo","name":"Deck"}
+{"kind":"layout","layoutId":"139f793a-1d5e-43c1-91f8-0faab11db2ed","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"f6f022cc-822b-48c3-b777-eb7abcfda4c4","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/ofbks8","slide":1,"title":"HERMES + YOU.COM","textShapes":12}
+{"kind":"textbox","id":"sh/1cfa9w3m","slide":1,"text":"HERMES + YOU.COM","textPreview":"HERMES + YOU.COM","textChars":16,"textLines":1,"bbox":[42,30,300,24]}
+{"kind":"shape","id":"sh/ulwval87","slide":1,"bbox":[42,626,1196,1]}
+{"kind":"textbox","id":"sh/j6tovaho","slide":1,"text":"Client preview","textPreview":"Client preview","textChars":14,"textLines":1,"bbox":[42,650,760,24]}
+{"kind":"textbox","id":"sh/c3ylc7u5","slide":1,"text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[1194,650,44,24]}
+{"kind":"textbox","id":"sh/1kre1w7m","slide":1,"text":"Hermes + You.com API Workshop","textPreview":"Hermes + You.com API Workshop","textChars":29,"textLines":1,"bbox":[58,96,970,70]}
+{"kind":"textbox","id":"sh/uxc3ylc7","slide":1,"text":"A client-ready preview of a governed workflow workshop powered by Search, Contents, Research, and Hermes orchestration.","textPreview":"A client-ready preview of a governed workflow workshop powered by Search, Contents, Research, and Hermes orchestration.","textChars":119,"textLines":1,"bbox":[60,188,920,76]}
+{"kind":"shape","id":"sh/ji5snelo","slide":1,"bbox":[60,314,720,8]}
+{"kind":"textbox","id":"sh/8bat47y1","slide":1,"text":"Show the API evidence path, then show how Hermes turns it into a reusable workflow a team can pilot.","textPreview":"Show the API evidence path, then show how Hermes turns it into a reusable workflow a team can pilot.","textChars":100,"textLines":1,"bbox":[60,354,770,110]}
+{"kind":"shape","id":"sh/1w7mp0bi","slide":1,"bbox":[900,112,300,372]}
+{"kind":"textbox","id":"sh/d0z61032","slide":1,"text":"Client sees","textPreview":"Client sees","textChars":11,"textLines":1,"bbox":[922,130,256,36]}
+{"kind":"textbox","id":"sh/kf6dcbul","slide":1,"text":"Live sources","textPreview":"Live sources","textChars":12,"textLines":1,"bbox":[922,178,256,38]}
+{"kind":"textbox","id":"sh/vu9knih4","slide":1,"text":"API calls in action","textPreview":"API calls in action","textChars":19,"textLines":1,"bbox":[922,220,256,38]}
+{"kind":"textbox","id":"sh/29gr2p8n","slide":1,"text":"Workflow packaging","textPreview":"Workflow packaging","textChars":18,"textLines":1,"bbox":[922,262,256,38]}
+{"kind":"textbox","id":"sh/d8bat47y","slide":1,"text":"Admin controls","textPreview":"Admin controls","textChars":14,"textLines":1,"bbox":[922,304,256,38]}
+{"kind":"textbox","id":"sh/knih4byh","slide":1,"text":"Two-week pilot","textPreview":"Two-week pilot","textChars":14,"textLines":1,"bbox":[922,346,256,38]}
+{"kind":"notes","id":"nt/ofbks8","slide":1,"text":""}
+{"kind":"slide","id":"sl/rpf9y1","slide":2,"title":"HERMES + YOU.COM","textShapes":17}
+{"kind":"textbox","id":"sh/psfil0rq","slide":2,"text":"HERMES + YOU.COM","textPreview":"HERMES + YOU.COM","textChars":16,"textLines":1,"bbox":[42,30,300,24]}
+{"kind":"shape","id":"sh/e1w7mp0b","slide":2,"bbox":[42,626,1196,1]}
+{"kind":"textbox","id":"sh/7mp0bi9s","slide":2,"text":"Client preview","textPreview":"Client preview","textChars":14,"textLines":1,"bbox":[42,650,760,24]}
+{"kind":"textbox","id":"sh/wval87ed","slide":2,"text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[1194,650,44,24]}
+{"kind":"textbox","id":"sh/pg3ex0nu","slide":2,"text":"The client problem is not getting one answer.","textPreview":"The client problem is not getting one answer.","textChars":45,"textLines":1,"bbox":[60,92,960,112]}
+{"kind":"textbox","id":"sh/epkzupwb","slide":2,"text":"The harder part is making the answer repeatable, inspectable, and safe to run in a team workflow.","textPreview":"The harder part is making the answer repeatable, inspectable, and safe to run in a team workflow.","textChars":97,"textLines":1,"bbox":[60,220,920,70]}
+{"kind":"shape","id":"sh/7adsji5s","slide":2,"bbox":[72,326,320,178]}
+{"kind":"textbox","id":"sh/wra5gbq1","slide":2,"text":"Typical AI demo","textPreview":"Typical AI demo","textChars":15,"textLines":1,"bbox":[94,344,276,36]}
+{"kind":"textbox","id":"sh/lc7u54zi","slide":2,"text":"One prompt","textPreview":"One prompt","textChars":10,"textLines":1,"bbox":[94,392,276,38]}
+{"kind":"textbox","id":"sh/9w3m94fu","slide":2,"text":"One answer","textPreview":"One answer","textChars":10,"textLines":1,"bbox":[94,434,276,38]}
+{"kind":"textbox","id":"sh/kb6xkf6d","slide":2,"text":"Unclear sources","textPreview":"Unclear sources","textChars":15,"textLines":1,"bbox":[94,476,276,38]}
+{"kind":"shape","id":"sh/rqd4vmtw","slide":2,"bbox":[480,326,320,178]}
+{"kind":"textbox","id":"sh/25kb6xkf","slide":2,"text":"What teams need","textPreview":"What teams need","textChars":15,"textLines":1,"bbox":[502,344,276,36]}
+{"kind":"textbox","id":"sh/9knih4by","slide":2,"text":"Reusable workflow","textPreview":"Reusable workflow","textChars":17,"textLines":1,"bbox":[502,392,276,38]}
+{"kind":"textbox","id":"sh/kzupwb2h","slide":2,"text":"Governed tools","textPreview":"Governed tools","textChars":14,"textLines":1,"bbox":[502,434,276,38]}
+{"kind":"textbox","id":"sh/re1w7mp0","slide":2,"text":"Reviewable evidence","textPreview":"Reviewable evidence","textChars":19,"textLines":1,"bbox":[502,476,276,38]}
+{"kind":"shape","id":"sh/2t83itgf","slide":2,"bbox":[888,326,320,178]}
+{"kind":"textbox","id":"sh/9gr2p8nq","slide":2,"text":"Workshop promise","textPreview":"Workshop promise","textChars":16,"textLines":1,"bbox":[910,344,276,36]}
+{"kind":"textbox","id":"sh/gvy90je9","slide":2,"text":"Build it live","textPreview":"Build it live","textChars":13,"textLines":1,"bbox":[910,392,276,38]}
+{"kind":"textbox","id":"sh/wra5gbq1","slide":2,"text":"Package it in Hermes","textPreview":"Package it in Hermes","textChars":20,"textLines":1,"bbox":[910,434,276,38]}
+{"kind":"textbox","id":"sh/lc7u54zi","slide":2,"text":"Pilot it in two weeks","textPreview":"Pilot it in two weeks","textChars":21,"textLines":1,"bbox":[910,476,276,38]}
+{"kind":"notes","id":"nt/rpf9y1","slide":2,"text":""}
+{"kind":"slide","id":"sl/vkmtp2","slide":3,"title":"HERMES + YOU.COM","textShapes":11}
+{"kind":"textbox","id":"sh/il0rqd4v","slide":3,"text":"HERMES + YOU.COM","textPreview":"HERMES + YOU.COM","textChars":16,"textLines":1,"bbox":[42,30,300,24]}
+{"kind":"shape","id":"sh/tcj6tova","slide":3,"bbox":[42,626,1196,1]}
+{"kind":"textbox","id":"sh/0rqd4vmt","slide":3,"text":"Client preview","textPreview":"Client preview","textChars":14,"textLines":1,"bbox":[42,650,760,24]}
+{"kind":"textbox","id":"sh/byhgn29g","slide":3,"text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[1194,650,44,24]}
+{"kind":"textbox","id":"sh/idonyd0z","slide":3,"text":"One account name becomes a governed action brief.","textPreview":"One account name becomes a governed action brief.","textChars":49,"textLines":1,"bbox":[60,92,960,112]}
+{"kind":"textbox","id":"sh/t47y1kre","slide":3,"text":"The flagship demo gives clients a concrete workflow they can immediately imagine using.","textPreview":"The flagship demo gives clients a concrete workflow they can immediately imagine using.","textChars":87,"textLines":1,"bbox":[60,220,920,70]}
+{"kind":"shape","id":"sh/0je9cvix","slide":3,"bbox":[72,346,210,80]}
+{"kind":"textbox","id":"sh/bulwval8","slide":3,"text":"Company name","textPreview":"Company name","textChars":12,"textLines":1,"bbox":[92,372,170,26]}
+{"kind":"shape","id":"sh/i9s36hcr","slide":3,"bbox":[300,386,90,0]}
+{"kind":"shape","id":"sh/0fepkzup","slide":3,"bbox":[410,314,300,144]}
+{"kind":"textbox","id":"sh/p0bi9s36","slide":3,"text":"You.com APIs","textPreview":"You.com APIs","textChars":12,"textLines":1,"bbox":[432,335,250,30]}
+{"kind":"textbox","id":"sh/i9s36hcr","slide":3,"text":"Search, read, synthesize, cite","textPreview":"Search, read, synthesize, cite","textChars":30,"textLines":1,"bbox":[432,384,250,26]}
+{"kind":"shape","id":"sh/bulwval8","slide":3,"bbox":[730,386,90,0]}
+{"kind":"shape","id":"sh/032lszqt","slide":3,"bbox":[840,314,300,144]}
+{"kind":"textbox","id":"sh/tovahoza","slide":3,"text":"Hermes workflow","textPreview":"Hermes workflow","textChars":15,"textLines":1,"bbox":[864,335,252,30]}
+{"kind":"textbox","id":"sh/ixczed8v","slide":3,"text":"Govern, package, pilot","textPreview":"Govern, package, pilot","textChars":22,"textLines":1,"bbox":[864,384,252,26]}
+{"kind":"textbox","id":"sh/bi9s36hc","slide":3,"text":"Output: `/account-action-brief` with claims, sources, review notes, and next actions.","textPreview":"Output: `/account-action-brief` with claims, sources, review notes, and next actions.","textChars":85,"textLines":1,"bbox":[94,520,920,44]}
+{"kind":"notes","id":"nt/vkmtp2","slide":3,"text":""}
+{"kind":"slide","id":"sl/so9b5j","slide":4,"title":"HERMES + YOU.COM","textShapes":5}
+{"kind":"textbox","id":"sh/wb2hwfyx","slide":4,"text":"HERMES + YOU.COM","textPreview":"HERMES + YOU.COM","textChars":16,"textLines":1,"bbox":[42,30,300,24]}
+{"kind":"shape","id":"sh/3q5o7qpg","slide":4,"bbox":[42,626,1196,1]}
+{"kind":"textbox","id":"sh/e9cvixcz","slide":4,"text":"Section","textPreview":"Section","textChars":7,"textLines":1,"bbox":[42,650,760,24]}
+{"kind":"textbox","id":"sh/loj2t83i","slide":4,"text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[1194,650,44,24]}
+{"kind":"shape","id":"sh/w3m94fu1","slide":4,"bbox":[58,112,8,330]}
+{"kind":"textbox","id":"sh/3itgfmlk","slide":4,"text":"The workshop has one simple spine.","textPreview":"The workshop has one simple spine.","textChars":34,"textLines":1,"bbox":[94,112,900,128]}
+{"kind":"textbox","id":"sh/ex0nuxc3","slide":4,"text":"You.com supplies the live intelligence layer. Hermes turns the evidence path into an operational workflow.","textPreview":"You.com supplies the live intelligence layer. Hermes turns the evidence path into an operational workflow.","textChars":106,"textLines":1,"bbox":[94,276,850,92]}
+{"kind":"notes","id":"nt/so9b5j","slide":4,"text":""}
+{"kind":"slide","id":"sl/a5xjg7","slide":5,"title":"HERMES + YOU.COM","textShapes":17}
+{"kind":"textbox","id":"sh/sji5snel","slide":5,"text":"HERMES + YOU.COM","textPreview":"HERMES + YOU.COM","textChars":16,"textLines":1,"bbox":[42,30,300,24]}
+{"kind":"shape","id":"sh/3ylc7u54","slide":5,"bbox":[42,626,1196,1]}
+{"kind":"textbox","id":"sh/adsji5sn","slide":5,"text":"You.com APIs","textPreview":"You.com APIs","textChars":12,"textLines":1,"bbox":[42,650,760,24]}
+{"kind":"textbox","id":"sh/lszqtcj6","slide":5,"text":"05","textPreview":"05","textChars":2,"textLines":1,"bbox":[1194,650,44,24]}
+{"kind":"textbox","id":"sh/s72x4nap","slide":5,"text":"The API stack maps to distinct workflow jobs.","textPreview":"The API stack maps to distinct workflow jobs.","textChars":45,"textLines":1,"bbox":[60,92,960,112]}
+{"kind":"textbox","id":"sh/3m94fu18","slide":5,"text":"This is the core client education: each API has a purpose, and Hermes decides when to call it.","textPreview":"This is the core client education: each API has a purpose, and Hermes decides when to call it.","textChars":94,"textLines":1,"bbox":[60,220,920,70]}
+{"kind":"shape","id":"sh/a5gbq1or","slide":5,"bbox":[72,316,250,196]}
+{"kind":"textbox","id":"sh/hoza1gvy","slide":5,"text":"Web Search","textPreview":"Web Search","textChars":10,"textLines":1,"bbox":[94,334,206,36]}
+{"kind":"textbox","id":"sh/s36hcrmh","slide":5,"text":"Current web and news","textPreview":"Current web and news","textChars":20,"textLines":1,"bbox":[94,382,206,38]}
+{"kind":"textbox","id":"sh/q1orytsv","slide":5,"text":"URLs, snippets, freshness","textPreview":"URLs, snippets, freshness","textChars":25,"textLines":1,"bbox":[94,424,206,38]}
+{"kind":"shape","id":"sh/fmlkjm1c","slide":5,"bbox":[362,316,250,196]}
+{"kind":"textbox","id":"sh/87ed8bat","slide":5,"text":"Contents","textPreview":"Contents","textChars":8,"textLines":1,"bbox":[384,334,206,36]}
+{"kind":"textbox","id":"sh/xs72x4na","slide":5,"text":"Clean page text","textPreview":"Clean page text","textChars":15,"textLines":1,"bbox":[384,382,206,38]}
+{"kind":"textbox","id":"sh/qtcj6tov","slide":5,"text":"Markdown, HTML, metadata","textPreview":"Markdown, HTML, metadata","textChars":24,"textLines":1,"bbox":[384,424,206,38]}
+{"kind":"shape","id":"sh/je9cvixc","slide":5,"bbox":[652,316,250,196]}
+{"kind":"textbox","id":"sh/8z25kb6x","slide":5,"text":"Research","textPreview":"Research","textChars":8,"textLines":1,"bbox":[674,334,206,36]}
+{"kind":"textbox","id":"sh/1gvy90je","slide":5,"text":"Cited synthesis","textPreview":"Cited synthesis","textChars":15,"textLines":1,"bbox":[674,382,206,38]}
+{"kind":"textbox","id":"sh/qpg3ex0n","slide":5,"text":"Answer plus sources","textPreview":"Answer plus sources","textChars":19,"textLines":1,"bbox":[674,424,206,38]}
+{"kind":"shape","id":"sh/fa9w3m94","slide":5,"bbox":[942,316,250,196]}
+{"kind":"textbox","id":"sh/re1w7mp0","slide":5,"text":"Finance Research","textPreview":"Finance Research","textChars":16,"textLines":1,"bbox":[964,334,206,36]}
+{"kind":"textbox","id":"sh/2t83itgf","slide":5,"text":"Public-company context","textPreview":"Public-company context","textChars":22,"textLines":1,"bbox":[964,382,206,38]}
+{"kind":"textbox","id":"sh/9knih4by","slide":5,"text":"Earnings, filings, market signals","textPreview":"Earnings, filings, market signals","textChars":33,"textLines":1,"bbox":[964,424,206,38]}
+{"kind":"notes","id":"nt/a5xjg7","slide":5,"text":""}
+{"kind":"slide","id":"sl/q4h6ow","slide":6,"title":"HERMES + YOU.COM","textShapes":10}
+{"kind":"textbox","id":"sh/5sneloj2","slide":6,"text":"HERMES + YOU.COM","textPreview":"HERMES + YOU.COM","textChars":16,"textLines":1,"bbox":[42,30,300,24]}
+{"kind":"shape","id":"sh/u54zidon","slide":6,"bbox":[42,626,1196,1]}
+{"kind":"textbox","id":"sh/nqxs72x4","slide":6,"text":"You.com APIs","textPreview":"You.com APIs","textChars":12,"textLines":1,"bbox":[42,650,760,24]}
+{"kind":"textbox","id":"sh/czed8v6p","slide":6,"text":"06","textPreview":"06","textChars":2,"textLines":1,"bbox":[1194,650,44,24]}
+{"kind":"textbox","id":"sh/5kb6xkf6","slide":6,"text":"The decision matrix keeps the demo crisp.","textPreview":"The decision matrix keeps the demo crisp.","textChars":41,"textLines":1,"bbox":[60,92,960,112]}
+{"kind":"textbox","id":"sh/ytsvu9kn","slide":6,"text":"Clients should understand when each API is the right tool before seeing the live calls.","textPreview":"Clients should understand when each API is the right tool before seeing the live calls.","textChars":87,"textLines":1,"bbox":[60,220,920,70]}
+{"kind":"shape","id":"sh/neloj2t8","slide":6,"bbox":[104,292,980,42]}
+{"kind":"shape","id":"sh/gn29gr2p","slide":6,"bbox":[104,311,8,8]}
+{"kind":"textbox","id":"sh/58z25kb6","slide":6,"text":"Need to discover sources: use Web Search.","textPreview":"Need to discover sources: use Web Search.","textChars":41,"textLines":1,"bbox":[132,302,944,46]}
+{"kind":"shape","id":"sh/d8bat47y","slide":6,"bbox":[104,342,980,42]}
+{"kind":"shape","id":"sh/knih4byh","slide":6,"bbox":[104,361,8,8]}
+{"kind":"textbox","id":"sh/v6psfil0","slide":6,"text":"Already trust a URL and need clean page text: use Contents.","textPreview":"Already trust a URL and need clean page text: use Contents.","textChars":59,"textLines":1,"bbox":[132,352,944,46]}
+{"kind":"shape","id":"sh/2lszqtcj","slide":6,"bbox":[104,392,980,42]}
+{"kind":"shape","id":"sh/d0z61032","slide":6,"bbox":[104,411,8,8]}
+{"kind":"textbox","id":"sh/kf6dcbul","slide":6,"text":"Need a cited synthesis across sources: use Research.","textPreview":"Need a cited synthesis across sources: use Research.","textChars":52,"textLines":1,"bbox":[132,402,944,46]}
+{"kind":"shape","id":"sh/vu9knih4","slide":6,"bbox":[104,442,980,42]}
+{"kind":"shape","id":"sh/29gr2p8n","slide":6,"bbox":[104,461,8,8]}
+{"kind":"textbox","id":"sh/donyd0z6","slide":6,"text":"Need public-company financial context: use Finance Research.","textPreview":"Need public-company financial context: use Finance Research.","textChars":60,"textLines":1,"bbox":[132,452,944,46]}
+{"kind":"shape","id":"sh/k3q5o7qp","slide":6,"bbox":[104,492,980,42]}
+{"kind":"shape","id":"sh/kb6xkf6d","slide":6,"bbox":[104,511,8,8]}
+{"kind":"textbox","id":"sh/9w3m94fu","slide":6,"text":"Need agent-accessible web tools without custom integration: use MCP.","textPreview":"Need agent-accessible web tools without custom integration: use MCP.","textChars":68,"textLines":1,"bbox":[132,502,944,46]}
+{"kind":"notes","id":"nt/q4h6ow","slide":6,"text":""}
+{"kind":"slide","id":"sl/7mylfz","slide":7,"title":"HERMES + YOU.COM","textShapes":16}
+{"kind":"textbox","id":"sh/t83itgfm","slide":7,"text":"HERMES + YOU.COM","textPreview":"HERMES + YOU.COM","textChars":16,"textLines":1,"bbox":[42,30,300,24]}
+{"kind":"shape","id":"sh/mhk3q5o7","slide":7,"bbox":[42,626,1196,1]}
+{"kind":"textbox","id":"sh/b2hwfyxo","slide":7,"text":"Demo path","textPreview":"Demo path","textChars":9,"textLines":1,"bbox":[42,650,760,24]}
+{"kind":"textbox","id":"sh/4byhgn29","slide":7,"text":"07","textPreview":"07","textChars":2,"textLines":1,"bbox":[1194,650,44,24]}
+{"kind":"textbox","id":"sh/twra5gbq","slide":7,"text":"The demo video shows the evidence path before the AI output.","textPreview":"The demo video shows the evidence path before the AI output.","textChars":60,"textLines":1,"bbox":[60,92,960,112]}
+{"kind":"textbox","id":"sh/m58z25kb","slide":7,"text":"That is what makes the workflow feel trustworthy instead of magical.","textPreview":"That is what makes the workflow feel trustworthy instead of magical.","textChars":68,"textLines":1,"bbox":[60,220,920,70]}
+{"kind":"shape","id":"sh/bq1oryts","slide":7,"bbox":[224,394,54,0]}
+{"kind":"shape","id":"sh/47y1kre1","slide":7,"bbox":[66,340,160,108]}
+{"kind":"textbox","id":"sh/tsvu9kni","slide":7,"text":"Search","textPreview":"Search","textChars":6,"textLines":1,"bbox":[78,362,136,26]}
+{"kind":"textbox","id":"sh/90je9cvi","slide":7,"text":"Discover","textPreview":"Discover","textChars":8,"textLines":1,"bbox":[78,404,136,24]}
+{"kind":"shape","id":"sh/gfmlkjm1","slide":7,"bbox":[454,394,54,0]}
+{"kind":"shape","id":"sh/rytsvu9k","slide":7,"bbox":[296,340,160,108]}
+{"kind":"textbox","id":"sh/yd0z6103","slide":7,"text":"Contents","textPreview":"Contents","textChars":8,"textLines":1,"bbox":[308,362,136,26]}
+{"kind":"textbox","id":"sh/9s36hcrm","slide":7,"text":"Inspect","textPreview":"Inspect","textChars":7,"textLines":1,"bbox":[308,404,136,24]}
+{"kind":"shape","id":"sh/g7adsji5","slide":7,"bbox":[684,394,54,0]}
+{"kind":"shape","id":"sh/rmhk3q5o","slide":7,"bbox":[526,340,160,108]}
+{"kind":"textbox","id":"sh/y1kre1w7","slide":7,"text":"Research","textPreview":"Research","textChars":8,"textLines":1,"bbox":[538,362,136,26]}
+{"kind":"textbox","id":"sh/5o7qpg3e","slide":7,"text":"Synthesize","textPreview":"Synthesize","textChars":10,"textLines":1,"bbox":[538,404,136,24]}
+{"kind":"shape","id":"sh/g3ex0nux","slide":7,"bbox":[914,394,54,0]}
+{"kind":"shape","id":"sh/cfa9w3m9","slide":7,"bbox":[756,340,160,108]}
+{"kind":"textbox","id":"sh/1032lszq","slide":7,"text":"Hermes","textPreview":"Hermes","textChars":6,"textLines":1,"bbox":[768,362,136,26]}
+{"kind":"textbox","id":"sh/u9knih4b","slide":7,"text":"Package","textPreview":"Package","textChars":7,"textLines":1,"bbox":[768,404,136,24]}
+{"kind":"shape","id":"sh/judg7ads","slide":7,"bbox":[986,340,160,108]}
+{"kind":"textbox","id":"sh/c7u54zid","slide":7,"text":"Review","textPreview":"Review","textChars":6,"textLines":1,"bbox":[998,362,136,26]}
+{"kind":"textbox","id":"sh/1orytsvu","slide":7,"text":"Approve","textPreview":"Approve","textChars":7,"textLines":1,"bbox":[998,404,136,24]}
+{"kind":"textbox","id":"sh/u18jqh0f","slide":7,"text":"Record this as a 5-7 minute module, then embed or play it during the client workshop.","textPreview":"Record this as a 5-7 minute module, then embed or play it during the client workshop.","textChars":85,"textLines":1,"bbox":[110,516,930,36]}
+{"kind":"notes","id":"nt/7mylfz","slide":7,"text":""}
+{"kind":"slide","id":"sl/ki77wy","slide":8,"title":"HERMES + YOU.COM","textShapes":11}
+{"kind":"textbox","id":"sh/8z25kb6x","slide":8,"text":"HERMES + YOU.COM","textPreview":"HERMES + YOU.COM","textChars":16,"textLines":1,"bbox":[42,30,300,24]}
+{"kind":"shape","id":"sh/je9cvixc","slide":8,"bbox":[42,626,1196,1]}
+{"kind":"textbox","id":"sh/qtcj6tov","slide":8,"text":"API demo","textPreview":"API demo","textChars":8,"textLines":1,"bbox":[42,650,760,24]}
+{"kind":"textbox","id":"sh/xs72x4na","slide":8,"text":"08","textPreview":"08","textChars":2,"textLines":1,"bbox":[1194,650,44,24]}
+{"kind":"textbox","id":"sh/87ed8bat","slide":8,"text":"Web Search is the source-discovery moment.","textPreview":"Web Search is the source-discovery moment.","textChars":42,"textLines":1,"bbox":[60,92,960,112]}
+{"kind":"textbox","id":"sh/fmlkjm1c","slide":8,"text":"Show the client structured web and news results before anything is synthesized.","textPreview":"Show the client structured web and news results before anything is synthesized.","textChars":79,"textLines":1,"bbox":[60,220,920,70]}
+{"kind":"shape","id":"sh/q1orytsv","slide":8,"bbox":[72,318,520,154]}
+{"kind":"textbox","id":"sh/x4nap4r6","slide":8,"text":"GET https://ydc-index.io/v1/search\nquery=ServiceNow recent AI agents announcements\ncount=5\nfreshness=year","textPreview":"GET https://ydc-index.io/v1/search | query=ServiceNow recent AI agents announcements | count=5 | freshness=year","textChars":105,"textLines":4,"bbox":[92,336,480,118]}
+{"kind":"shape","id":"sh/8jqh0fep","slide":8,"bbox":[680,300,460,196]}
+{"kind":"textbox","id":"sh/mp0bi9s3","slide":8,"text":"What to highlight","textPreview":"What to highlight","textChars":17,"textLines":1,"bbox":[702,318,416,36]}
+{"kind":"textbox","id":"sh/bat47y1k","slide":8,"text":"results.web and results.news","textPreview":"results.web and results.news","textChars":28,"textLines":1,"bbox":[702,366,416,38]}
+{"kind":"textbox","id":"sh/4vmtwra5","slide":8,"text":"title, url, snippets, page_age","textPreview":"title, url, snippets, page_age","textChars":30,"textLines":1,"bbox":[702,408,416,38]}
+{"kind":"textbox","id":"sh/tgfmlkjm","slide":8,"text":"include, exclude, and boost domains","textPreview":"include, exclude, and boost domains","textChars":35,"textLines":1,"bbox":[702,450,416,38]}
+{"kind":"textbox","id":"sh/m1cfa9w3","slide":8,"text":"livecrawl when page content is needed","textPreview":"livecrawl when page content is needed","textChars":37,"textLines":1,"bbox":[702,492,416,38]}
+{"kind":"notes","id":"nt/ki77wy","slide":8,"text":""}
+{"kind":"slide","id":"sl/uj05v6","slide":9,"title":"HERMES + YOU.COM","textShapes":11}
+{"kind":"textbox","id":"sh/e1w7mp0b","slide":9,"text":"HERMES + YOU.COM","textPreview":"HERMES + YOU.COM","textChars":16,"textLines":1,"bbox":[42,30,300,24]}
+{"kind":"shape","id":"sh/psfil0rq","slide":9,"bbox":[42,626,1196,1]}
+{"kind":"textbox","id":"sh/w7mp0bi9","slide":9,"text":"API demo","textPreview":"API demo","textChars":8,"textLines":1,"bbox":[42,650,760,24]}
+{"kind":"textbox","id":"sh/7adsji5s","slide":9,"text":"09","textPreview":"09","textChars":2,"textLines":1,"bbox":[1194,650,44,24]}
+{"kind":"textbox","id":"sh/epkzupwb","slide":9,"text":"Contents turns chosen URLs into usable evidence.","textPreview":"Contents turns chosen URLs into usable evidence.","textChars":48,"textLines":1,"bbox":[60,92,960,112]}
+{"kind":"textbox","id":"sh/pg3ex0nu","slide":9,"text":"This is where the demo teaches source inspection, not just search.","textPreview":"This is where the demo teaches source inspection, not just search.","textChars":66,"textLines":1,"bbox":[60,220,920,70]}
+{"kind":"shape","id":"sh/wval87ed","slide":9,"bbox":[72,300,520,210]}
+{"kind":"textbox","id":"sh/36hcrmhk","slide":9,"text":"POST https://ydc-index.io/v1/contents\n{\n  \"urls\": [\"https://...\"],\n  \"formats\": [\"markdown\", \"metadata\"],\n  \"max_age\": 86400\n}","textPreview":"POST https://ydc-index.io/v1/contents | { |   \"urls\": [\"https://...\"], |   \"formats\": [\"markdown\", \"metadata\"], |   \"max_age\": 86400 | }","textChars":126,"textLines":6,"bbox":[92,318,480,174]}
+{"kind":"shape","id":"sh/eloj2t83","slide":9,"bbox":[680,300,460,210]}
+{"kind":"textbox","id":"sh/wra5gbq1","slide":9,"text":"What to highlight","textPreview":"What to highlight","textChars":17,"textLines":1,"bbox":[702,318,416,36]}
+{"kind":"textbox","id":"sh/lc7u54zi","slide":9,"text":"Takes URLs, not queries","textPreview":"Takes URLs, not queries","textChars":23,"textLines":1,"bbox":[702,366,416,38]}
+{"kind":"textbox","id":"sh/eloj2t83","slide":9,"text":"Returns clean page text","textPreview":"Returns clean page text","textChars":23,"textLines":1,"bbox":[702,408,416,38]}
+{"kind":"textbox","id":"sh/36hcrmhk","slide":9,"text":"Metadata supports source checks","textPreview":"Metadata supports source checks","textChars":31,"textLines":1,"bbox":[702,450,416,38]}
+{"kind":"textbox","id":"sh/wfyxobm5","slide":9,"text":"max_age helps manage freshness","textPreview":"max_age helps manage freshness","textChars":30,"textLines":1,"bbox":[702,492,416,38]}
+{"kind":"notes","id":"nt/uj05v6","slide":9,"text":""}
+{"kind":"slide","id":"sl/06tnys","slide":10,"title":"HERMES + YOU.COM","textShapes":10}
+{"kind":"textbox","id":"sh/25kb6xkf","slide":10,"text":"HERMES + YOU.COM","textPreview":"HERMES + YOU.COM","textChars":16,"textLines":1,"bbox":[42,30,300,24]}
+{"kind":"shape","id":"sh/9w3m94fu","slide":10,"bbox":[42,626,1196,1]}
+{"kind":"textbox","id":"sh/kb6xkf6d","slide":10,"text":"API demo","textPreview":"API demo","textChars":8,"textLines":1,"bbox":[42,650,760,24]}
+{"kind":"textbox","id":"sh/re1w7mp0","slide":10,"text":"10","textPreview":"10","textChars":2,"textLines":1,"bbox":[1194,650,44,24]}
+{"kind":"textbox","id":"sh/2t83itgf","slide":10,"text":"Research is the cited synthesis layer.","textPreview":"Research is the cited synthesis layer.","textChars":38,"textLines":1,"bbox":[60,92,960,112]}
+{"kind":"textbox","id":"sh/9knih4by","slide":10,"text":"Use it when the workflow needs reasoning across sources rather than raw retrieval.","textPreview":"Use it when the workflow needs reasoning across sources rather than raw retrieval.","textChars":82,"textLines":1,"bbox":[60,220,920,70]}
+{"kind":"shape","id":"sh/kzupwb2h","slide":10,"bbox":[72,286,548,258]}
+{"kind":"textbox","id":"sh/ra5gbq1o","slide":10,"text":"POST https://api.you.com/v1/research\n{\n  \"input\": \"What are the key signals?\",\n  \"research_effort\": \"standard\",\n  \"source_control\": {\n    \"freshness\": \"year\",\n    \"boost_domains\": [\"servicenow.com\"]\n  }\n}","textPreview":"POST https://api.you.com/v1/research | { |   \"input\": \"What are the key signals?\", |   \"research_effort\": \"standard\", |   \"source_control...","textChars":204,"textLines":9,"bbox":[92,304,508,222]}
+{"kind":"shape","id":"sh/2p8nqxs7","slide":10,"bbox":[704,306,434,194]}
+{"kind":"textbox","id":"sh/gvy90je9","slide":10,"text":"What to highlight","textPreview":"What to highlight","textChars":17,"textLines":1,"bbox":[726,324,390,36]}
+{"kind":"textbox","id":"sh/9gr2p8nq","slide":10,"text":"research_effort controls depth","textPreview":"research_effort controls depth","textChars":30,"textLines":1,"bbox":[726,372,390,38]}
+{"kind":"textbox","id":"sh/2p8nqxs7","slide":10,"text":"source_control guides domains","textPreview":"source_control guides domains","textChars":29,"textLines":1,"bbox":[726,414,390,38]}
+{"kind":"textbox","id":"sh/ra5gbq1o","slide":10,"text":"content and sources feed Hermes","textPreview":"content and sources feed Hermes","textChars":31,"textLines":1,"bbox":[726,456,390,38]}
+{"kind":"notes","id":"nt/06tnys","slide":10,"text":""}
+{"kind":"slide","id":"sl/foo6wq","slide":11,"title":"HERMES + YOU.COM","textShapes":9}
+{"kind":"textbox","id":"sh/4fu18jqh","slide":11,"text":"HERMES + YOU.COM","textPreview":"HERMES + YOU.COM","textChars":16,"textLines":1,"bbox":[42,30,300,24]}
+{"kind":"shape","id":"sh/fu18jqh0","slide":11,"bbox":[42,626,1196,1]}
+{"kind":"textbox","id":"sh/m94fu18j","slide":11,"text":"API demo","textPreview":"API demo","textChars":8,"textLines":1,"bbox":[42,650,760,24]}
+{"kind":"textbox","id":"sh/xobm58z2","slide":11,"text":"11","textPreview":"11","textChars":2,"textLines":1,"bbox":[1194,650,44,24]}
+{"kind":"textbox","id":"sh/83itgfml","slide":11,"text":"Structured Research makes the workflow operational.","textPreview":"Structured Research makes the workflow operational.","textChars":51,"textLines":1,"bbox":[60,92,960,112]}
+{"kind":"textbox","id":"sh/fil0rqd4","slide":11,"text":"Predictable JSON fields can map directly into a workflow card, CRM draft, or review checklist.","textPreview":"Predictable JSON fields can map directly into a workflow card, CRM draft, or review checklist.","textChars":94,"textLines":1,"bbox":[60,220,920,70]}
+{"kind":"shape","id":"sh/qxs72x4n","slide":11,"bbox":[86,306,520,218]}
+{"kind":"textbox","id":"sh/xkf6dcbu","slide":11,"text":"\"output_schema\": {\n  \"type\": \"object\",\n  \"properties\": {\n    \"signals\": [{\n      \"signal\": \"...\",\n      \"why_it_matters\": \"...\",\n      \"recommended_action\": \"...\"\n    }]\n  }\n}","textPreview":"\"output_schema\": { |   \"type\": \"object\", |   \"properties\": { |     \"signals\": [{ |       \"signal\": \"...\", |       \"why_it_matters\": \"...\"...","textChars":175,"textLines":10,"bbox":[106,324,480,182]}
+{"kind":"shape","id":"sh/4zidonyd","slide":11,"bbox":[700,339,8,8]}
+{"kind":"textbox","id":"sh/mhk3q5o7","slide":11,"text":"A fielded response reduces manual cleanup.","textPreview":"A fielded response reduces manual cleanup.","textChars":42,"textLines":1,"bbox":[728,330,394,58]}
+{"kind":"shape","id":"sh/b2hwfyxo","slide":11,"bbox":[700,401,8,8]}
+{"kind":"textbox","id":"sh/4nap4r65","slide":11,"text":"Sources remain available separately for review.","textPreview":"Sources remain available separately for review.","textChars":47,"textLines":1,"bbox":[728,392,394,58]}
+{"kind":"shape","id":"sh/t83itgfm","slide":11,"bbox":[700,463,8,8]}
+{"kind":"textbox","id":"sh/m58z25kb","slide":11,"text":"Hermes can package the result as a repeatable skill or playbook.","textPreview":"Hermes can package the result as a repeatable skill or playbook.","textChars":64,"textLines":1,"bbox":[728,454,394,58]}
+{"kind":"notes","id":"nt/foo6wq","slide":11,"text":""}
+{"kind":"slide","id":"sl/77maao","slide":12,"title":"HERMES + YOU.COM","textShapes":15}
+{"kind":"textbox","id":"sh/mhk3q5o7","slide":12,"text":"HERMES + YOU.COM","textPreview":"HERMES + YOU.COM","textChars":16,"textLines":1,"bbox":[42,30,300,24]}
+{"kind":"shape","id":"sh/t83itgfm","slide":12,"bbox":[42,626,1196,1]}
+{"kind":"textbox","id":"sh/4nap4r65","slide":12,"text":"API demo","textPreview":"API demo","textChars":8,"textLines":1,"bbox":[42,650,760,24]}
+{"kind":"textbox","id":"sh/bq1oryts","slide":12,"text":"12","textPreview":"12","textChars":2,"textLines":1,"bbox":[1194,650,44,24]}
+{"kind":"textbox","id":"sh/m58z25kb","slide":12,"text":"Finance Research is an optional credibility booster.","textPreview":"Finance Research is an optional credibility booster.","textChars":52,"textLines":1,"bbox":[60,92,960,112]}
+{"kind":"textbox","id":"sh/twra5gbq","slide":12,"text":"For public-company account briefs, it adds earnings, filings, and market context without changing the core workflow.","textPreview":"For public-company account briefs, it adds earnings, filings, and market context without changing the core workflow.","textChars":116,"textLines":1,"bbox":[60,220,920,70]}
+{"kind":"shape","id":"sh/4byhgn29","slide":12,"bbox":[84,314,316,190]}
+{"kind":"textbox","id":"sh/bm58z25k","slide":12,"text":"Use when","textPreview":"Use when","textChars":8,"textLines":1,"bbox":[106,332,272,36]}
+{"kind":"textbox","id":"sh/m1cfa9w3","slide":12,"text":"Public-company accounts","textPreview":"Public-company accounts","textChars":23,"textLines":1,"bbox":[106,380,272,38]}
+{"kind":"textbox","id":"sh/cfa9w3m9","slide":12,"text":"Earnings or filings matter","textPreview":"Earnings or filings matter","textChars":26,"textLines":1,"bbox":[106,422,272,38]}
+{"kind":"textbox","id":"sh/1032lszq","slide":12,"text":"Market context shapes the meeting","textPreview":"Market context shapes the meeting","textChars":33,"textLines":1,"bbox":[106,464,272,38]}
+{"kind":"shape","id":"sh/u9knih4b","slide":12,"bbox":[482,314,316,190]}
+{"kind":"textbox","id":"sh/judg7ads","slide":12,"text":"Do not overuse it","textPreview":"Do not overuse it","textChars":17,"textLines":1,"bbox":[504,332,272,36]}
+{"kind":"textbox","id":"sh/c7u54zid","slide":12,"text":"Skip for private accounts","textPreview":"Skip for private accounts","textChars":25,"textLines":1,"bbox":[504,380,272,38]}
+{"kind":"textbox","id":"sh/1orytsvu","slide":12,"text":"Keep regulated decisions reviewed","textPreview":"Keep regulated decisions reviewed","textChars":33,"textLines":1,"bbox":[504,422,272,38]}
+{"kind":"textbox","id":"sh/u18jqh0f","slide":12,"text":"Treat citations as verification paths","textPreview":"Treat citations as verification paths","textChars":37,"textLines":1,"bbox":[504,464,272,38]}
+{"kind":"shape","id":"sh/jm1cfa9w","slide":12,"bbox":[880,314,316,190]}
+{"kind":"textbox","id":"sh/cvixczed","slide":12,"text":"Demo line","textPreview":"Demo line","textChars":9,"textLines":1,"bbox":[902,332,272,36]}
+{"kind":"textbox","id":"sh/5gbq1ory","slide":12,"text":"\"This is optional, but useful when financial context changes the account strategy.\"","textPreview":"\"This is optional, but useful when financial context changes the account strategy.\"","textChars":83,"textLines":1,"bbox":[902,380,272,38]}
+{"kind":"notes","id":"nt/77maao","slide":12,"text":""}
+{"kind":"slide","id":"sl/ybpdsg","slide":13,"title":"HERMES + YOU.COM","textShapes":5}
+{"kind":"textbox","id":"sh/5sneloj2","slide":13,"text":"HERMES + YOU.COM","textPreview":"HERMES + YOU.COM","textChars":16,"textLines":1,"bbox":[42,30,300,24]}
+{"kind":"shape","id":"sh/u54zidon","slide":13,"bbox":[42,626,1196,1]}
+{"kind":"textbox","id":"sh/nqxs72x4","slide":13,"text":"Section","textPreview":"Section","textChars":7,"textLines":1,"bbox":[42,650,760,24]}
+{"kind":"textbox","id":"sh/czed8v6p","slide":13,"text":"13","textPreview":"13","textChars":2,"textLines":1,"bbox":[1194,650,44,24]}
+{"kind":"shape","id":"sh/5kb6xkf6","slide":13,"bbox":[58,112,8,330]}
+{"kind":"textbox","id":"sh/ytsvu9kn","slide":13,"text":"Hermes turns the API path into something a team can run.","textPreview":"Hermes turns the API path into something a team can run.","textChars":56,"textLines":1,"bbox":[94,112,900,128]}
+{"kind":"textbox","id":"sh/neloj2t8","slide":13,"text":"The client should see the move from technical API calls to an owned, governed workflow.","textPreview":"The client should see the move from technical API calls to an owned, governed workflow.","textChars":87,"textLines":1,"bbox":[94,276,850,92]}
+{"kind":"notes","id":"nt/ybpdsg","slide":13,"text":""}
+{"kind":"slide","id":"sl/d41yzn","slide":14,"title":"HERMES + YOU.COM","textShapes":17}
+{"kind":"textbox","id":"sh/svu9knih","slide":14,"text":"HERMES + YOU.COM","textPreview":"HERMES + YOU.COM","textChars":16,"textLines":1,"bbox":[42,30,300,24]}
+{"kind":"shape","id":"sh/za1gvy90","slide":14,"bbox":[42,626,1196,1]}
+{"kind":"textbox","id":"sh/ap4r65wj","slide":14,"text":"Hermes workflow","textPreview":"Hermes workflow","textChars":15,"textLines":1,"bbox":[42,650,760,24]}
+{"kind":"textbox","id":"sh/hoza1gvy","slide":14,"text":"14","textPreview":"14","textChars":2,"textLines":1,"bbox":[1194,650,44,24]}
+{"kind":"textbox","id":"sh/s36hcrmh","slide":14,"text":"The Hermes workflow card makes the demo pilot-ready.","textPreview":"The Hermes workflow card makes the demo pilot-ready.","textChars":52,"textLines":1,"bbox":[60,92,960,112]}
+{"kind":"textbox","id":"sh/zidonyd0","slide":14,"text":"This is the client-facing artifact that turns interest into implementation.","textPreview":"This is the client-facing artifact that turns interest into implementation.","textChars":75,"textLines":1,"bbox":[60,220,920,70]}
+{"kind":"shape","id":"sh/a1gvy90j","slide":14,"bbox":[72,306,334,228]}
+{"kind":"textbox","id":"sh/lszqtcj6","slide":14,"text":"Workflow","textPreview":"Workflow","textChars":8,"textLines":1,"bbox":[94,324,290,36]}
+{"kind":"textbox","id":"sh/s72x4nap","slide":14,"text":"/account-action-brief","textPreview":"/account-action-brief","textChars":21,"textLines":1,"bbox":[94,372,290,38]}
+{"kind":"textbox","id":"sh/idonyd0z","slide":14,"text":"Trigger: meeting prep","textPreview":"Trigger: meeting prep","textChars":21,"textLines":1,"bbox":[94,414,290,38]}
+{"kind":"textbox","id":"sh/byhgn29g","slide":14,"text":"Owner: account team","textPreview":"Owner: account team","textChars":19,"textLines":1,"bbox":[94,456,290,38]}
+{"kind":"shape","id":"sh/0je9cvix","slide":14,"bbox":[472,306,334,228]}
+{"kind":"textbox","id":"sh/t47y1kre","slide":14,"text":"Allowed tools","textPreview":"Allowed tools","textChars":13,"textLines":1,"bbox":[494,324,290,36]}
+{"kind":"textbox","id":"sh/il0rqd4v","slide":14,"text":"You.com Search","textPreview":"You.com Search","textChars":14,"textLines":1,"bbox":[494,372,290,38]}
+{"kind":"textbox","id":"sh/b6xkf6dc","slide":14,"text":"Contents and Research","textPreview":"Contents and Research","textChars":21,"textLines":1,"bbox":[494,414,290,38]}
+{"kind":"textbox","id":"sh/0rqd4vmt","slide":14,"text":"Approved internal context","textPreview":"Approved internal context","textChars":25,"textLines":1,"bbox":[494,456,290,38]}
+{"kind":"shape","id":"sh/tcj6tova","slide":14,"bbox":[872,306,334,228]}
+{"kind":"textbox","id":"sh/ixczed8v","slide":14,"text":"Review rules","textPreview":"Review rules","textChars":12,"textLines":1,"bbox":[894,324,290,36]}
+{"kind":"textbox","id":"sh/bi9s36hc","slide":14,"text":"Sources required","textPreview":"Sources required","textChars":16,"textLines":1,"bbox":[894,372,290,38]}
+{"kind":"textbox","id":"sh/zidonyd0","slide":14,"text":"Internal vs external labels","textPreview":"Internal vs external labels","textChars":27,"textLines":1,"bbox":[894,414,290,38]}
+{"kind":"textbox","id":"sh/a1gvy90j","slide":14,"text":"Human approval before outreach","textPreview":"Human approval before outreach","textChars":30,"textLines":1,"bbox":[894,456,290,38]}
+{"kind":"notes","id":"nt/d41yzn","slide":14,"text":""}
+{"kind":"slide","id":"sl/lhyi82","slide":15,"title":"HERMES + YOU.COM","textShapes":10}
+{"kind":"textbox","id":"sh/e1w7mp0b","slide":15,"text":"HERMES + YOU.COM","textPreview":"HERMES + YOU.COM","textChars":16,"textLines":1,"bbox":[42,30,300,24]}
+{"kind":"shape","id":"sh/psfil0rq","slide":15,"bbox":[42,626,1196,1]}
+{"kind":"textbox","id":"sh/w7mp0bi9","slide":15,"text":"Governance","textPreview":"Governance","textChars":10,"textLines":1,"bbox":[42,650,760,24]}
+{"kind":"textbox","id":"sh/7adsji5s","slide":15,"text":"15","textPreview":"15","textChars":2,"textLines":1,"bbox":[1194,650,44,24]}
+{"kind":"textbox","id":"sh/epkzupwb","slide":15,"text":"Governance is a design choice, not an afterthought.","textPreview":"Governance is a design choice, not an afterthought.","textChars":51,"textLines":1,"bbox":[60,92,960,112]}
+{"kind":"textbox","id":"sh/pg3ex0nu","slide":15,"text":"The workshop makes admins comfortable because tool access, credentials, data boundaries, and review gates are explicit.","textPreview":"The workshop makes admins comfortable because tool access, credentials, data boundaries, and review gates are explicit.","textChars":119,"textLines":1,"bbox":[60,220,920,70]}
+{"kind":"shape","id":"sh/wval87ed","slide":15,"bbox":[110,286,1000,42]}
+{"kind":"shape","id":"sh/36hcrmhk","slide":15,"bbox":[110,305,8,8]}
+{"kind":"textbox","id":"sh/eloj2t83","slide":15,"text":"Which You.com tools can Hermes call for this workflow?","textPreview":"Which You.com tools can Hermes call for this workflow?","textChars":54,"textLines":1,"bbox":[138,296,964,46]}
+{"kind":"shape","id":"sh/wra5gbq1","slide":15,"bbox":[110,336,1000,42]}
+{"kind":"shape","id":"sh/lc7u54zi","slide":15,"bbox":[110,355,8,8]}
+{"kind":"textbox","id":"sh/eloj2t83","slide":15,"text":"Which domains or sources are preferred, allowed, or blocked?","textPreview":"Which domains or sources are preferred, allowed, or blocked?","textChars":60,"textLines":1,"bbox":[138,346,964,46]}
+{"kind":"shape","id":"sh/36hcrmhk","slide":15,"bbox":[110,386,1000,42]}
+{"kind":"shape","id":"sh/wfyxobm5","slide":15,"bbox":[110,405,8,8]}
+{"kind":"textbox","id":"sh/l0rqd4vm","slide":15,"text":"Where do credentials live, and who owns rotation?","textPreview":"Where do credentials live, and who owns rotation?","textChars":49,"textLines":1,"bbox":[138,396,964,46]}
+{"kind":"shape","id":"sh/ed8bat47","slide":15,"bbox":[110,436,1000,42]}
+{"kind":"shape","id":"sh/7u54zido","slide":15,"bbox":[110,455,8,8]}
+{"kind":"textbox","id":"sh/w7mp0bi9","slide":15,"text":"What data is internal-only, and what can be used externally?","textPreview":"What data is internal-only, and what can be used externally?","textChars":60,"textLines":1,"bbox":[138,446,964,46]}
+{"kind":"shape","id":"sh/psfil0rq","slide":15,"bbox":[110,486,1000,42]}
+{"kind":"shape","id":"sh/9w3m94fu","slide":15,"bbox":[110,505,8,8]}
+{"kind":"textbox","id":"sh/kb6xkf6d","slide":15,"text":"Which actions are draft-only until a reviewer approves?","textPreview":"Which actions are draft-only until a reviewer approves?","textChars":55,"textLines":1,"bbox":[138,496,964,46]}
+{"kind":"notes","id":"nt/lhyi82","slide":15,"text":""}
+{"kind":"slide","id":"sl/zbuzap","slide":16,"title":"HERMES + YOU.COM","textShapes":17}
+{"kind":"textbox","id":"sh/47y1kre1","slide":16,"text":"HERMES + YOU.COM","textPreview":"HERMES + YOU.COM","textChars":16,"textLines":1,"bbox":[42,30,300,24]}
+{"kind":"shape","id":"sh/bm58z25k","slide":16,"bbox":[42,626,1196,1]}
+{"kind":"textbox","id":"sh/m1cfa9w3","slide":16,"text":"Pilot","textPreview":"Pilot","textChars":5,"textLines":1,"bbox":[42,650,760,24]}
+{"kind":"textbox","id":"sh/tgfmlkjm","slide":16,"text":"16","textPreview":"16","textChars":2,"textLines":1,"bbox":[1194,650,44,24]}
+{"kind":"textbox","id":"sh/4vmtwra5","slide":16,"text":"The client leaves with a short pilot, not a vague next step.","textPreview":"The client leaves with a short pilot, not a vague next step.","textChars":60,"textLines":1,"bbox":[60,92,960,112]}
+{"kind":"textbox","id":"sh/bat47y1k","slide":16,"text":"A two-week pilot keeps scope small enough to govern and concrete enough to measure.","textPreview":"A two-week pilot keeps scope small enough to govern and concrete enough to measure.","textChars":83,"textLines":1,"bbox":[60,220,920,70]}
+{"kind":"shape","id":"sh/mp0bi9s3","slide":16,"bbox":[86,318,300,192]}
+{"kind":"textbox","id":"sh/t83itgfm","slide":16,"text":"Week 0","textPreview":"Week 0","textChars":6,"textLines":1,"bbox":[108,336,256,36]}
+{"kind":"textbox","id":"sh/4nap4r65","slide":16,"text":"Pick 5 users","textPreview":"Pick 5 users","textChars":12,"textLines":1,"bbox":[108,384,256,38]}
+{"kind":"textbox","id":"sh/u9knih4b","slide":16,"text":"Pick 20 accounts","textPreview":"Pick 20 accounts","textChars":16,"textLines":1,"bbox":[108,426,256,38]}
+{"kind":"textbox","id":"sh/judg7ads","slide":16,"text":"Confirm tools and review rules","textPreview":"Confirm tools and review rules","textChars":30,"textLines":1,"bbox":[108,468,256,38]}
+{"kind":"shape","id":"sh/cfa9w3m9","slide":16,"bbox":[490,318,300,192]}
+{"kind":"textbox","id":"sh/1032lszq","slide":16,"text":"Week 1","textPreview":"Week 1","textChars":6,"textLines":1,"bbox":[512,336,256,36]}
+{"kind":"textbox","id":"sh/u18jqh0f","slide":16,"text":"Run 10 briefs","textPreview":"Run 10 briefs","textChars":13,"textLines":1,"bbox":[512,384,256,38]}
+{"kind":"textbox","id":"sh/jm1cfa9w","slide":16,"text":"Require review","textPreview":"Require review","textChars":14,"textLines":1,"bbox":[512,426,256,38]}
+{"kind":"textbox","id":"sh/c7u54zid","slide":16,"text":"Track source quality and edits","textPreview":"Track source quality and edits","textChars":30,"textLines":1,"bbox":[512,468,256,38]}
+{"kind":"shape","id":"sh/1orytsvu","slide":16,"bbox":[894,318,300,192]}
+{"kind":"textbox","id":"sh/upwb2hwf","slide":16,"text":"Week 2","textPreview":"Week 2","textChars":6,"textLines":1,"bbox":[916,336,256,36]}
+{"kind":"textbox","id":"sh/nap4r65w","slide":16,"text":"Run 25 briefs","textPreview":"Run 25 briefs","textChars":13,"textLines":1,"bbox":[916,384,256,38]}
+{"kind":"textbox","id":"sh/f6dcbulw","slide":16,"text":"Draft CRM or review handoffs","textPreview":"Draft CRM or review handoffs","textChars":28,"textLines":1,"bbox":[916,426,256,38]}
+{"kind":"textbox","id":"sh/mlkjm1cf","slide":16,"text":"Decide expand, revise, or stop","textPreview":"Decide expand, revise, or stop","textChars":30,"textLines":1,"bbox":[916,468,256,38]}
+{"kind":"notes","id":"nt/zbuzap","slide":16,"text":""}
+{"kind":"slide","id":"sl/xsihvt","slide":17,"title":"HERMES + YOU.COM","textShapes":11}
+{"kind":"textbox","id":"sh/oj2t83it","slide":17,"text":"HERMES + YOU.COM","textPreview":"HERMES + YOU.COM","textChars":16,"textLines":1,"bbox":[42,30,300,24]}
+{"kind":"shape","id":"sh/vy90je9c","slide":17,"bbox":[42,626,1196,1]}
+{"kind":"textbox","id":"sh/6dcbulwv","slide":17,"text":"Close","textPreview":"Close","textChars":5,"textLines":1,"bbox":[42,650,760,24]}
+{"kind":"textbox","id":"sh/dsji5sne","slide":17,"text":"17","textPreview":"17","textChars":2,"textLines":1,"bbox":[1194,650,44,24]}
+{"kind":"textbox","id":"sh/o7qpg3ex","slide":17,"text":"Show the API evidence. Package the workflow. Pilot with one team.","textPreview":"Show the API evidence. Package the workflow. Pilot with one team.","textChars":65,"textLines":1,"bbox":[60,112,980,116]}
+{"kind":"textbox","id":"sh/vmtwra5g","slide":17,"text":"The client-facing ask: bring one manual workflow and one account example. We will map the API calls, review rules, and pilot path together.","textPreview":"The client-facing ask: bring one manual workflow and one account example. We will map the API calls, review rules, and pilot path together.","textChars":139,"textLines":1,"bbox":[60,270,780,96]}
+{"kind":"shape","id":"sh/61032lsz","slide":17,"bbox":[60,398,630,8]}
+{"kind":"textbox","id":"sh/dg7adsji","slide":17,"text":"Recommended next action: schedule a 60-minute client preview using the deck plus the API demo video runbook.","textPreview":"Recommended next action: schedule a 60-minute client preview using the deck plus the API demo video runbook.","textChars":108,"textLines":1,"bbox":[60,444,760,72]}
+{"kind":"shape","id":"sh/ovahoza1","slide":17,"bbox":[910,154,288,342]}
+{"kind":"textbox","id":"sh/mtwra5gb","slide":17,"text":"Share with client","textPreview":"Share with client","textChars":17,"textLines":1,"bbox":[932,172,244,36]}
+{"kind":"textbox","id":"sh/fepkzupw","slide":17,"text":"Client preview deck","textPreview":"Client preview deck","textChars":19,"textLines":1,"bbox":[932,220,244,38]}
+{"kind":"textbox","id":"sh/4zidonyd","slide":17,"text":"API demo video","textPreview":"API demo video","textChars":14,"textLines":1,"bbox":[932,262,244,38]}
+{"kind":"textbox","id":"sh/xkf6dcbu","slide":17,"text":"Audience tutorial","textPreview":"Audience tutorial","textChars":17,"textLines":1,"bbox":[932,304,244,38]}
+{"kind":"textbox","id":"sh/mlkjm1cf","slide":17,"text":"Two-week pilot plan","textPreview":"Two-week pilot plan","textChars":19,"textLines":1,"bbox":[932,346,244,38]}
+{"kind":"notes","id":"nt/xsihvt","slide":17,"text":""}

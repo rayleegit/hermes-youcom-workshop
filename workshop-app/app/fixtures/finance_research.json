@@ -1,0 +1,16 @@
+{
+  "output": {
+    "content": "AMD's financial profile shows strong data center revenue growth driven by Instinct GPU demand and continued EPYC CPU adoption, with AI infrastructure cited as a primary growth driver. Gross margin trends reflect mix shift toward higher-value data center products.\n\n**Key financial signals for account teams:**\n- Data center revenue growth indicates healthy expansion potential in AI cluster deals\n- Instinct momentum suggests multi-quarter platform investment cycles\n- EPYC + Instinct joint wins may increase deal size versus single-product engagements\n- Investor focus on AI accelerator share gains may influence customer budget timing\n\n**Risk factors to monitor:**\n- Competitive pressure in AI accelerators and server CPUs\n- Customer workload portability and software readiness (ROCm ecosystem maturity)\n- Supply chain and export/regulatory dynamics for advanced chips\n- Macro sensitivity in capex-heavy data center segments",
+    "content_type": "text",
+    "sources": [
+      {
+        "title": "AMD Q1 2025 Earnings Release",
+        "url": "https://ir.amd.com/news-events/press-releases/detail/1234/amd-reports-first-quarter-2025-financial-results"
+      },
+      {
+        "title": "AMD Annual Report — Risk Factors",
+        "url": "https://ir.amd.com/financial-information/annual-reports"
+      }
+    ]
+  }
+}

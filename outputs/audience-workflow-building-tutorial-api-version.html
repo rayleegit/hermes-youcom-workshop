@@ -1,0 +1,1113 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Hermes Workflow Studio - Audience Workflow Tutorial - API Demo Version</title><style>
+body { font-family: Arial, sans-serif; color: #111; line-height: 1.45; }
+h1 { font-size: 28px; margin-bottom: 12px; }
+h2 { font-size: 20px; margin-top: 28px; margin-bottom: 8px; }
+h3 { font-size: 16px; margin-top: 20px; margin-bottom: 6px; }
+p, li { font-size: 11pt; }
+pre { background: #f6f8fa; padding: 12px; border: 1px solid #d0d7de; white-space: pre-wrap; font-size: 10pt; }
+code { font-family: Menlo, Consolas, monospace; }
+ul, ol { margin-top: 0; }
+</style></head><body><h1>Tutorial: Build Your First Reusable Hermes Workflow With You.com</h1>
+<h2>What You Will Build</h2>
+<p>In this tutorial, you will create a reusable workflow called <code>/account-action-brief</code>.</p>
+<p>The workflow takes one account, company, customer, prospect, or partner name and produces a source-backed action brief that a team can review, reuse, and pilot.</p>
+<p>By the end, you should have:</p>
+<ol>
+<li>A working workflow prompt.</li>
+<li>A source inspection habit.</li>
+<li>A structured output format.</li>
+<li>A connector map for the tools your team already uses.</li>
+<li>Admin and review rules.</li>
+<li>A reusable Hermes skill or playbook.</li>
+<li>A two-week pilot plan.</li>
+</ol>
+<p>This tutorial uses You.com for live web intelligence and Hermes as the workflow layer that turns a useful prompt into a repeatable, governed process.</p>
+<p>The workshop should make the You.com APIs visible. The audience should see that the workflow is not just &quot;an AI answer.&quot; It is a chain of API-backed retrieval, extraction, synthesis, and review.</p>
+<h2>Who This Is For</h2>
+<p>This is designed for:</p>
+<ul>
+<li>GTM, sales, customer success, partnerships, and marketing teams.</li>
+<li>Operators who repeatedly prepare account, customer, partner, or market briefs.</li>
+<li>Product, solutions, and AI teams building internal workflows.</li>
+<li>Admins who need to make AI workflows reusable without making them uncontrolled.</li>
+</ul>
+<p>You do not need to be a software engineer. If your team has developer support, there is an optional technical implementation path near the end.</p>
+<h2>Recommended Workshop Format</h2>
+<p>Use this tutorial in a 75- to 90-minute workshop.</p>
+<p>Suggested timing:</p>
+<ul>
+<li>0-10 min: Pick the workflow and define the job.</li>
+<li>10-25 min: Gather live sources with You.com.</li>
+<li>25-40 min: Draft the first brief.</li>
+<li>40-55 min: Add tool and team context.</li>
+<li>55-70 min: Add governance and review rules.</li>
+<li>70-85 min: Package the workflow and write the pilot plan.</li>
+<li>85-90 min: Decide next action.</li>
+</ul>
+<h2>Before You Start</h2>
+<p>Pick one workflow your team already runs manually.</p>
+<p>Good candidates:</p>
+<ul>
+<li>Account brief before a customer meeting.</li>
+<li>Prospect brief before outbound.</li>
+<li>Partner brief before a co-selling discussion.</li>
+<li>Renewal risk brief before a QBR.</li>
+<li>Competitive update before a deal review.</li>
+<li>Executive briefing before a strategic meeting.</li>
+</ul>
+<p>Avoid starting with workflows that:</p>
+<ul>
+<li>Require private or sensitive data you cannot safely use in the workshop.</li>
+<li>Need automatic writeback before anyone has reviewed the result.</li>
+<li>Depend on undocumented business rules.</li>
+<li>Have no clear owner.</li>
+</ul>
+<p>For this tutorial, the default example is:</p>
+<pre><code>Workflow: /account-action-brief
+Input: Company name
+Output: Source-backed account brief plus suggested next actions
+Primary user: Account owner, CSM, partnerships lead, or marketer
+Reviewer: Manager, deal owner, or workflow owner
+Pilot length: 2 weeks</code></pre>
+<h2>Materials</h2>
+<p>You will need:</p>
+<ul>
+<li>Access to Hermes.</li>
+<li>Access to You.com tools through Hermes, MCP, API, or your workshop facilitator.</li>
+<li>One public company, prospect, customer, or partner to research.</li>
+<li>Optional: read-only sample context from CRM, notes, docs, support tickets, or call summaries.</li>
+<li>A place to save the final workflow card.</li>
+<li>Optional for the API demo: terminal, Postman, or a notebook with a <code>YDC_API_KEY</code>.</li>
+</ul>
+<p>If you do not have live access during the workshop, use placeholder sources and still complete the workflow design. The design work is useful even before connectors are fully wired.</p>
+<h2>You.com API Spotlight</h2>
+<p>Use this section as the API explainer before the hands-on build.</p>
+<p>You.com gives the workflow four useful API modes:</p>
+<pre><code>Web Search API:
+Find current web and news results as structured JSON.
+Best when you need candidate sources, snippets, freshness signals, and URLs.
+
+Contents API:
+Fetch clean Markdown, HTML, or metadata from URLs you already trust.
+Best when snippets are not enough and Hermes needs the full source text.
+
+Research API:
+Ask a complex question and get a synthesized, citation-backed answer.
+Best when the workflow needs multi-source reasoning, not just retrieval.
+
+Finance Research API:
+Ask financial questions against a finance-optimized index.
+Best for public-company account briefs, earnings, filings, market context, and investor-facing signals.</code></pre>
+<p>The core workshop can use Search, Contents, and Research. Finance Research is an optional add-on for public-company examples.</p>
+<h2>API Choice Matrix</h2>
+<p>Use this decision rule:</p>
+<pre><code>I need to discover sources.
+-&gt; Use Web Search API.
+
+I already have URLs and need clean page text.
+-&gt; Use Contents API.
+
+I need a short, cited synthesis across multiple sources.
+-&gt; Use Research API.
+
+I need public-company financial context, earnings, filings, or market data synthesis.
+-&gt; Use Finance Research API.
+
+I want Hermes or another agent to call web tools without writing integration code.
+-&gt; Use the You.com MCP server.</code></pre>
+<p>For the <code>/account-action-brief</code> workflow, the recommended flow is:</p>
+<pre><code>1. Web Search API finds candidate sources.
+2. Contents API reads the best URLs.
+3. Research API synthesizes the strategic implications.
+4. Optional Finance Research API adds public-company financial context.
+5. Hermes packages the final workflow and applies review rules.</code></pre>
+<h2>API Demo Setup</h2>
+<p>Use this setup when showing the APIs in a demo video or live workshop.</p>
+<pre><code>export YDC_API_KEY=&quot;your-key&quot;</code></pre>
+<p>Use one example account throughout the recording:</p>
+<pre><code>Company: ServiceNow
+Workflow: /account-action-brief
+Question: What are the most important recent strategic signals for ServiceNow, and what actions should an account team consider?</code></pre>
+<p>Show the API response shape, not just the final answer. The point is for the audience to see why the workflow is source-grounded.</p>
+<h2>The Workflow Pattern</h2>
+<p>Every reusable workflow needs the same basic shape:</p>
+<pre><code>Trigger -&gt; Inputs -&gt; Tools -&gt; Draft -&gt; Review -&gt; Reuse -&gt; Pilot</code></pre>
+<p>For <code>/account-action-brief</code>, that becomes:</p>
+<pre><code>User asks for an account brief
+-&gt; Hermes collects required inputs
+-&gt; You.com gathers current web sources
+-&gt; Hermes drafts a structured brief
+-&gt; User inspects sources and edits weak claims
+-&gt; Hermes packages the prompt as a reusable workflow
+-&gt; Team pilots the workflow for two weeks</code></pre>
+<h2>Step 1: Choose The Job</h2>
+<p>Start by writing the job in one sentence.</p>
+<p>Template:</p>
+<pre><code>When I am [situation], I need [workflow output], so I can [decision or action].</code></pre>
+<p>Examples:</p>
+<pre><code>When I am preparing for a customer meeting, I need a current account brief, so I can enter the call with relevant business context and suggested next actions.</code></pre>
+<pre><code>When I am preparing outbound to a target account, I need a source-backed company brief, so I can write a relevant message without inventing claims.</code></pre>
+<pre><code>When I am preparing for a partner conversation, I need a partner brief, so I can identify shared priorities, risks, and collaboration angles.</code></pre>
+<p>Your turn:</p>
+<pre><code>When I am ______________________________________,
+I need ________________________________________,
+so I can _______________________________________.</code></pre>
+<h2>Step 2: Define The Workflow Input</h2>
+<p>Do not start with a giant prompt. Start with the smallest input set that makes the workflow useful.</p>
+<p>For the first version, use:</p>
+<pre><code>Required input:
+- Account or company name
+
+Optional inputs:
+- Website URL
+- Region
+- Segment
+- Relationship type
+- Upcoming meeting date
+- Current opportunity or project
+- Internal notes or constraints</code></pre>
+<p>Recommended workshop input:</p>
+<pre><code>Company: [COMPANY NAME]
+Website: [OPTIONAL WEBSITE]
+Use case: Prepare an account action brief
+Audience: Account owner or customer-facing team</code></pre>
+<h2>Step 3: Define The Output Before You Run The Workflow</h2>
+<p>A workflow is easier to govern when the output format is stable.</p>
+<p>Use this output schema:</p>
+<pre><code># Account Action Brief
+
+## 1. Snapshot
+- Company:
+- Website:
+- Industry:
+- Size or scale:
+- Business model:
+- Source confidence:
+
+## 2. Current Signals
+- Recent company news:
+- Product or strategy updates:
+- Executive or leadership changes:
+- Funding, financial, or market signals:
+- Partnership or ecosystem signals:
+
+## 3. Why This Account Might Care
+- Likely priorities:
+- Likely pain points:
+- Possible buying triggers:
+- Relevant transformation themes:
+
+## 4. Suggested Actions
+- Recommended next step:
+- Suggested internal owner:
+- Suggested outreach angle:
+- Open questions to resolve:
+
+## 5. Claims And Sources
+- Claim:
+- Source:
+- Date or freshness:
+- Confidence:
+
+## 6. Review Notes
+- Claims that need human review:
+- Missing sources:
+- Assumptions:
+- Do not use externally until reviewed:</code></pre>
+<p>This structure matters because Hermes can reuse it, admins can inspect it, and users can compare outputs across accounts.</p>
+<h2>Step 4: Run The First Draft In Hermes</h2>
+<p>In Hermes, start a new workflow, skill, playbook, or agent run.</p>
+<p>Use this first prompt:</p>
+<pre><code>Create a source-backed account action brief for [COMPANY NAME].
+
+Use current public web sources through You.com.
+
+Return the brief in this exact structure:
+
+1. Snapshot
+2. Current Signals
+3. Why This Account Might Care
+4. Suggested Actions
+5. Claims And Sources
+6. Review Notes
+
+Rules:
+- Do not make unsupported claims.
+- Include source URLs for factual claims.
+- Prefer official company pages, recent news, investor relations pages, product pages, and credible industry sources.
+- Mark uncertain claims as uncertain.
+- Separate sourced facts from recommendations.
+- If evidence is weak or missing, say so.</code></pre>
+<p>Run it once.</p>
+<p>Do not polish the wording yet. First, inspect the sources.</p>
+<h2>Step 5: Use You.com Search For Current External Signals</h2>
+<p>Use You.com Search when you need current web and news results.</p>
+<p>Ask Hermes or your You.com-connected tool to search for:</p>
+<pre><code>[COMPANY NAME] recent announcements
+[COMPANY NAME] product strategy
+[COMPANY NAME] investor relations recent results
+[COMPANY NAME] partnerships
+[COMPANY NAME] AI automation data cloud security customer experience</code></pre>
+<p>If your workshop uses APIs directly, the conceptual call is:</p>
+<pre><code>Search query: &quot;[COMPANY NAME] recent announcements product strategy partnerships&quot;
+Count: 5-10 results
+Return: title, URL, snippets, date/freshness if available</code></pre>
+<p>API demo command:</p>
+<pre><code>curl -G https://ydc-index.io/v1/search \
+  -H &quot;X-API-Key: $YDC_API_KEY&quot; \
+  --data-urlencode &quot;query=ServiceNow recent AI agents announcements partnerships&quot; \
+  -d count=5 \
+  -d freshness=year</code></pre>
+<p>API demo command with trusted-domain focus:</p>
+<pre><code>curl -G https://ydc-index.io/v1/search \
+  -H &quot;X-API-Key: $YDC_API_KEY&quot; \
+  --data-urlencode &quot;query=ServiceNow AI agents announcements investor product strategy&quot; \
+  -d count=5 \
+  --data-urlencode &quot;include_domains=servicenow.com&quot;</code></pre>
+<p>What to point out in the video:</p>
+<ul>
+<li><code>results.web</code> and <code>results.news</code> are separated but returned in one response.</li>
+<li>Each result includes a <code>title</code>, <code>url</code>, description or snippets, and often freshness metadata such as <code>page_age</code>.</li>
+<li>The snippets are already LLM-ready context, so Hermes can use them before fetching full pages.</li>
+<li>The <code>include_domains</code>, <code>exclude_domains</code>, <code>boost_domains</code>, <code>freshness</code>, <code>country</code>, and <code>language</code> parameters are governance levers, not just search tweaks.</li>
+</ul>
+<p>Optional livecrawl moment:</p>
+<pre><code>curl -G https://ydc-index.io/v1/search \
+  -H &quot;X-API-Key: $YDC_API_KEY&quot; \
+  --data-urlencode &quot;query=ServiceNow AI agents announcements&quot; \
+  -d count=3 \
+  -d livecrawl=all \
+  -d livecrawl_formats=markdown</code></pre>
+<p>Use <code>livecrawl</code> when you want the search result and the page content in one call. Use Contents when you already know exactly which URLs should be read.</p>
+<p>Source selection rule:</p>
+<p>Use at least:</p>
+<ul>
+<li>1 official company source.</li>
+<li>1 recent news or announcement source.</li>
+<li>1 product, investor, partner, or industry source.</li>
+</ul>
+<p>Avoid:</p>
+<ul>
+<li>Unsourced listicles.</li>
+<li>Old articles presented as current.</li>
+<li>Pages with unclear authorship when better sources exist.</li>
+<li>Social posts unless the workflow explicitly allows them.</li>
+</ul>
+<h2>Step 6: Inspect The Sources</h2>
+<p>Before trusting the answer, inspect the evidence.</p>
+<p>For each important source, capture:</p>
+<pre><code>Source title:
+Source URL:
+Publisher:
+Date or freshness:
+What claim does this support?
+Is this source strong enough for internal use?
+Is this source strong enough for external use?
+What is missing?</code></pre>
+<p>Use this quick score:</p>
+<pre><code>3 = Strong source. Official, recent, directly supports the claim.
+2 = Usable source. Credible but indirect or incomplete.
+1 = Weak source. Old, vague, secondhand, or only partially relevant.
+0 = Do not use. Unsupported, unreliable, or not relevant.</code></pre>
+<p>Keep only claims with score 2 or 3 in the main brief.</p>
+<p>Move score 1 claims to &quot;Review Notes.&quot;</p>
+<p>Remove score 0 claims.</p>
+<h2>Step 7: Use Contents For Source Reading</h2>
+<p>Use You.com Contents when you already have URLs and need clean page text.</p>
+<p>This is useful for:</p>
+<ul>
+<li>Product pages.</li>
+<li>Press releases.</li>
+<li>Investor relations pages.</li>
+<li>Pricing pages.</li>
+<li>Documentation pages.</li>
+<li>Partner pages.</li>
+</ul>
+<p>Prompt:</p>
+<pre><code>Read these URLs and extract the clean page content:
+
+[URL 1]
+[URL 2]
+[URL 3]
+
+For each page, return:
+- Title
+- URL
+- Last visible date, if present
+- Key claims relevant to [WORKFLOW GOAL]
+- Exact section or passage summary supporting each claim</code></pre>
+<p>Then ask Hermes:</p>
+<pre><code>Update the account action brief using only the source content above.
+
+For every factual claim, include a source URL.
+If the source content does not support a claim, remove it or move it to Review Notes.</code></pre>
+<p>API demo command:</p>
+<pre><code>curl -X POST https://ydc-index.io/v1/contents \
+  -H &quot;X-API-Key: $YDC_API_KEY&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{
+    &quot;urls&quot;: [
+      &quot;https://www.servicenow.com/company/media/press-room.html&quot;
+    ],
+    &quot;formats&quot;: [&quot;markdown&quot;, &quot;metadata&quot;],
+    &quot;crawl_timeout&quot;: 15,
+    &quot;max_age&quot;: 86400
+  }&#x27;</code></pre>
+<p>What to point out in the video:</p>
+<ul>
+<li>Contents takes specific URLs, not a search query.</li>
+<li>The response returns source URL, title, clean <code>markdown</code> or <code>html</code>, and optional metadata.</li>
+<li>This is the best moment to show the &quot;source inspection&quot; habit: the API gives Hermes page text, but the workflow still decides which claims are allowed.</li>
+<li><code>max_age</code> can force fresher fetches when stale cached content is a risk.</li>
+</ul>
+<h2>Step 8: Use Research When The Question Requires Synthesis</h2>
+<p>Use You.com Research when the workflow needs a deeper synthesized answer, not just raw search results.</p>
+<p>Good Research questions:</p>
+<pre><code>What are the most important recent strategic signals for [COMPANY NAME], and what do they imply for a customer-facing team?</code></pre>
+<pre><code>What has changed in [COMPANY NAME]&#x27;s market position over the last 12 months?</code></pre>
+<pre><code>What are the strongest sourced reasons [COMPANY NAME] might care about [YOUR PRODUCT CATEGORY] right now?</code></pre>
+<p>Prompt:</p>
+<pre><code>Use You.com Research to answer this question:
+
+[QUESTION]
+
+Return:
+- A concise answer
+- Inline citations or source references
+- A source list
+- Uncertainties
+- Claims that should not be used externally without human review</code></pre>
+<p>Then fold the result back into the workflow:</p>
+<pre><code>Merge this research into the account action brief.
+
+Rules:
+- Keep the brief short.
+- Preserve source URLs.
+- Remove duplicate claims.
+- Keep recommendations separate from sourced facts.
+- Mark assumptions clearly.</code></pre>
+<p>API demo command:</p>
+<pre><code>curl -X POST https://api.you.com/v1/research \
+  -H &quot;X-API-Key: $YDC_API_KEY&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{
+    &quot;input&quot;: &quot;What are the most important recent strategic signals for ServiceNow, and what should an account team consider before a customer conversation?&quot;,
+    &quot;research_effort&quot;: &quot;standard&quot;,
+    &quot;source_control&quot;: {
+      &quot;freshness&quot;: &quot;year&quot;,
+      &quot;boost_domains&quot;: [&quot;servicenow.com&quot;]
+    }
+  }&#x27;</code></pre>
+<p>What to point out in the video:</p>
+<ul>
+<li>Research does more than return results. It searches, reads, and synthesizes a cited answer.</li>
+<li><code>research_effort</code> controls depth and latency. Use <code>lite</code> for fast answers, <code>standard</code> for the default workshop demo, and <code>deep</code> or <code>exhaustive</code> when thoroughness matters more than speed.</li>
+<li><code>source_control</code> lets the workflow prefer, include, exclude, or filter sources by freshness and geography.</li>
+<li>The response includes <code>output.content</code> and <code>output.sources</code>, which Hermes can turn into the account brief&#x27;s &quot;Claims And Sources&quot; section.</li>
+</ul>
+<p>Structured Research demo:</p>
+<pre><code>curl -X POST https://api.you.com/v1/research \
+  -H &quot;X-API-Key: $YDC_API_KEY&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{
+    &quot;input&quot;: &quot;Extract the top three recent ServiceNow strategic signals for an enterprise account team.&quot;,
+    &quot;research_effort&quot;: &quot;standard&quot;,
+    &quot;output_schema&quot;: {
+      &quot;type&quot;: &quot;object&quot;,
+      &quot;properties&quot;: {
+        &quot;signals&quot;: {
+          &quot;type&quot;: &quot;array&quot;,
+          &quot;items&quot;: {
+            &quot;type&quot;: &quot;object&quot;,
+            &quot;properties&quot;: {
+              &quot;signal&quot;: { &quot;type&quot;: &quot;string&quot; },
+              &quot;why_it_matters&quot;: { &quot;type&quot;: &quot;string&quot; },
+              &quot;recommended_action&quot;: { &quot;type&quot;: &quot;string&quot; }
+            },
+            &quot;required&quot;: [&quot;signal&quot;, &quot;why_it_matters&quot;, &quot;recommended_action&quot;],
+            &quot;additionalProperties&quot;: false
+          }
+        }
+      },
+      &quot;required&quot;: [&quot;signals&quot;],
+      &quot;additionalProperties&quot;: false
+    }
+  }&#x27;</code></pre>
+<p>Use this in the workshop to show why structured output matters: Hermes can take the API output and map it directly into a workflow card or CRM update draft.</p>
+<h2>Optional API Add-On: Use Finance Research For Public Companies</h2>
+<p>Use Finance Research only when the account brief needs financial or market context.</p>
+<p>Good Finance Research questions:</p>
+<pre><code>What were the key drivers of [PUBLIC COMPANY]&#x27;s most recent earnings results?
+What financial or market signals should an enterprise account team know before meeting with [PUBLIC COMPANY]?
+What risk factors or strategic priorities appeared in [PUBLIC COMPANY]&#x27;s latest annual report?</code></pre>
+<p>API demo command:</p>
+<pre><code>curl -X POST https://api.you.com/v1/finance_research \
+  -H &quot;X-API-Key: $YDC_API_KEY&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{
+    &quot;input&quot;: &quot;What financial or market signals should an enterprise account team know before meeting with ServiceNow?&quot;,
+    &quot;research_effort&quot;: &quot;deep&quot;
+  }&#x27;</code></pre>
+<p>What to point out in the video:</p>
+<ul>
+<li>Finance Research uses a finance-optimized index rather than the open web.</li>
+<li>It returns the same high-level shape as Research: <code>output.content</code>, <code>content_type</code>, and <code>sources</code>.</li>
+<li>It is useful for public-company account briefs, earnings summaries, filings, and market-sensitive account context.</li>
+<li>It should not replace primary-source verification for investment, compliance, or regulated decisions.</li>
+</ul>
+<h2>Step 9: Add Your Team Context</h2>
+<p>The first useful version can run on public sources only. The more valuable version connects public intelligence to team context.</p>
+<p>Add context carefully. Start read-only.</p>
+<p>Possible context sources:</p>
+<ul>
+<li>CRM account fields.</li>
+<li>Open opportunity notes.</li>
+<li>Customer success notes.</li>
+<li>Support themes.</li>
+<li>Call summaries.</li>
+<li>Internal account plans.</li>
+<li>Approved messaging docs.</li>
+<li>Product documentation.</li>
+<li>Competitive notes.</li>
+</ul>
+<p>For the workshop, use sample or sanitized context:</p>
+<pre><code>Internal context:
+- Account segment:
+- Relationship stage:
+- Current opportunity:
+- Known initiatives:
+- Known objections:
+- Existing products used:
+- Recent meeting notes:
+- Approved positioning:
+- Data that must not be used externally:</code></pre>
+<p>Prompt:</p>
+<pre><code>Update the account action brief using the internal context below.
+
+Internal context:
+[PASTE SANITIZED CONTEXT]
+
+Rules:
+- Treat internal context as private.
+- Do not cite internal context as public evidence.
+- Label internal-only recommendations clearly.
+- Do not create external messaging from private information unless it has been approved for external use.
+- Keep public-source claims and internal observations separate.</code></pre>
+<h2>Step 10: Create The Connector Map</h2>
+<p>A workflow becomes real when you know which tools it reads from, writes to, and asks humans to review.</p>
+<p>Fill this out:</p>
+<pre><code>Workflow name:
+Primary user:
+Workflow owner:
+
+Read-only tools:
+- You.com Search:
+- You.com Contents:
+- You.com Research:
+- You.com Finance Research, optional for public-company financial context:
+- CRM:
+- Docs:
+- Notes:
+- Support:
+
+Draft-only tools:
+- Email draft:
+- Slack or Teams review request:
+- CRM update draft:
+- Meeting brief:
+
+Write-enabled tools:
+- None for pilot, unless explicitly approved.
+
+Blocked tools or data:
+- Sensitive customer data:
+- Unapproved legal/compliance language:
+- Personal data not needed for the workflow:
+- Anything outside pilot scope:</code></pre>
+<p>Recommended first pilot:</p>
+<pre><code>Read from public web and approved internal context.
+Draft review messages and CRM updates.
+Do not auto-send outreach.
+Do not auto-update CRM.
+Require a human to approve external use.</code></pre>
+<h2>Step 11: Add Review Gates</h2>
+<p>Review gates make the workflow usable without making it reckless.</p>
+<p>Use four states:</p>
+<pre><code>Draft:
+The workflow produced an output, but no human has reviewed it.
+
+Needs edits:
+A reviewer found unsupported claims, weak sources, tone issues, or missing context.
+
+Approved for internal use:
+The brief is safe to use for planning, meeting prep, or internal discussion.
+
+Approved for external use:
+The claims, sources, and wording are safe for outreach, customer communication, or public-facing use.</code></pre>
+<p>Add this review prompt:</p>
+<pre><code>Review this account action brief.
+
+Check:
+- Are all factual claims source-backed?
+- Are sources recent enough?
+- Are recommendations separated from facts?
+- Are internal-only details clearly marked?
+- Are there claims that should not be used externally?
+- Is the suggested next action reasonable?
+
+Return:
+- Status: Draft, Needs edits, Approved for internal use, or Approved for external use
+- Required edits
+- Weak or missing sources
+- External-use concerns
+- Final reviewer notes</code></pre>
+<h2>Step 12: Create The Workflow Card</h2>
+<p>The workflow card is the handoff between &quot;this prompt worked once&quot; and &quot;our team can run this repeatedly.&quot;</p>
+<p>Copy this template:</p>
+<pre><code># Workflow Card
+
+Workflow name:
+/account-action-brief
+
+Purpose:
+Create a current, source-backed action brief for a company, customer, prospect, or partner.
+
+Primary user:
+[ROLE]
+
+Workflow owner:
+[PERSON OR TEAM]
+
+Trigger:
+[Example: preparing for a meeting, account review, outbound sequence, QBR, partner call]
+
+Required inputs:
+- Company or account name
+
+Optional inputs:
+- Website
+- Segment
+- Region
+- Relationship stage
+- Meeting date
+- Opportunity context
+- Internal notes
+
+Allowed tools:
+- You.com Search
+- You.com Contents
+- You.com Research
+- Approved internal context sources
+
+Blocked tools or data:
+- [LIST]
+
+Output format:
+- Snapshot
+- Current Signals
+- Why This Account Might Care
+- Suggested Actions
+- Claims And Sources
+- Review Notes
+
+Review rules:
+- Every factual claim needs a source or must be marked as an assumption.
+- External-use content requires human approval.
+- Internal-only context must be labeled.
+- Weakly sourced claims move to Review Notes.
+
+Success metrics:
+- Time saved per brief
+- Percent of briefs with reviewer edits
+- Percent of claims with strong sources
+- Number of briefs used in real workflow
+- Number of follow-up actions created
+
+Pilot plan:
+- Week 0: setup
+- Week 1: small test
+- Week 2: measured pilot</code></pre>
+<h2>Step 13: Turn The Prompt Into A Reusable Hermes Workflow</h2>
+<p>Once the prompt works, package it.</p>
+<p>In Hermes, create a reusable skill, playbook, or workflow with:</p>
+<pre><code>Name:
+/account-action-brief
+
+Description:
+Creates a current, source-backed account action brief using You.com web intelligence and approved team context.
+
+Inputs:
+- company_name: required
+- company_url: optional
+- workflow_goal: optional
+- internal_context: optional
+- output_audience: internal or external draft
+
+Tools:
+- You.com Search
+- You.com Contents
+- You.com Research
+- You.com Finance Research, optional for public-company financial context
+- Approved internal read-only sources
+- Draft-only communication tools, if approved
+
+Output:
+Account Action Brief
+
+Review:
+Human review required before external use.</code></pre>
+<p>Use this reusable instruction:</p>
+<pre><code>You are running the `/account-action-brief` workflow.
+
+Goal:
+Create a concise, source-backed account action brief that helps a team decide what to do next.
+
+Required behavior:
+1. Confirm the account or company name.
+2. Search for current public sources using You.com.
+3. Prefer official, recent, and directly relevant sources.
+4. Use Contents to inspect important URLs when snippets are not enough.
+5. Use Research only when synthesis is needed.
+6. Separate sourced facts from recommendations.
+7. Include source URLs for factual claims.
+8. Mark weak evidence and assumptions.
+9. Label internal-only context.
+10. Produce the brief in the approved output format.
+11. End with review status and next action.
+
+Do not:
+- Invent facts.
+- Treat old sources as current.
+- Mix private internal context into external messaging.
+- Auto-send messages or write to systems unless the workflow has explicit approval.</code></pre>
+<h2>Step 14: Test The Workflow With Three Accounts</h2>
+<p>Do not pilot after one good run. Test with three different examples.</p>
+<p>Use:</p>
+<pre><code>Account 1: A company with lots of public news.
+Account 2: A company with limited public information.
+Account 3: A company where your internal context matters.</code></pre>
+<p>For each run, score:</p>
+<pre><code>Account:
+Was the output useful? yes/no
+Were the sources strong? 0-3
+Were there unsupported claims? yes/no
+Did the workflow separate facts from recommendations? yes/no
+Did the output match the required format? yes/no
+Would you use this in a real workflow? yes/no
+What should change before pilot?</code></pre>
+<h2>Step 15: Create A Quality Scorecard</h2>
+<p>Use this lightweight scorecard:</p>
+<pre><code>Correctness:
+0 = Important claims are wrong.
+1 = Some claims are questionable.
+2 = Mostly correct with minor edits.
+3 = Correct based on available sources.
+
+Citation support:
+0 = No useful sources.
+1 = Sources are weak or mismatched.
+2 = Most key claims have sources.
+3 = Every important factual claim has a strong source.
+
+Freshness:
+0 = Sources are stale or undated.
+1 = Some sources are current.
+2 = Most important sources are current.
+3 = Sources are clearly current for the decision.
+
+Usefulness:
+0 = Not actionable.
+1 = Some useful context.
+2 = Useful with edits.
+3 = Clear next action.
+
+Review burden:
+0 = Too much cleanup.
+1 = Heavy edits required.
+2 = Light edits required.
+3 = Ready after quick review.</code></pre>
+<p>Pilot rule:</p>
+<pre><code>Do not expand the workflow until average scores are 2 or higher and there are no recurring unsupported-claim issues.</code></pre>
+<h2>Step 16: Plan The Two-Week Pilot</h2>
+<p>Keep the pilot small enough to learn from.</p>
+<p>Use this plan:</p>
+<pre><code>Week 0: Setup
+- Pick 5 users.
+- Pick 20 accounts.
+- Confirm workflow owner.
+- Confirm allowed tools.
+- Confirm blocked data.
+- Confirm review rules.
+- Create feedback form.
+
+Week 1: Controlled runs
+- Run 10 briefs.
+- Require human review.
+- Track unsupported claims.
+- Track source quality.
+- Track time saved.
+- Capture user edits.
+
+Week 2: Real workflow use
+- Run 25 briefs.
+- Use briefs in real meetings, outbound prep, or account reviews.
+- Draft CRM updates or review handoffs, but do not auto-write unless approved.
+- Review metrics.
+- Decide whether to expand, revise, or stop.</code></pre>
+<h2>Step 17: Decide What Happens After The Pilot</h2>
+<p>At the end of the pilot, choose one of three paths:</p>
+<pre><code>Expand:
+The workflow is useful, source-backed, and reviewable. Add more users or adjacent workflows.
+
+Revise:
+The workflow is promising but needs better sources, clearer outputs, tighter governance, or better integrations.
+
+Stop:
+The workflow does not save time, does not improve quality, or requires too much review.</code></pre>
+<p>Decision template:</p>
+<pre><code>Pilot decision:
+Expand / Revise / Stop
+
+Evidence:
+- Usage:
+- Time saved:
+- Source quality:
+- User satisfaction:
+- Review burden:
+- Business impact:
+
+Next owner:
+Next milestone:</code></pre>
+<h2>Optional: Add A Review Handoff</h2>
+<p>If your team uses Slack, Teams, email, or a ticketing system, add a review handoff.</p>
+<p>Draft-only handoff prompt:</p>
+<pre><code>Create a review request for this account action brief.
+
+Audience:
+[REVIEWER OR CHANNEL]
+
+Include:
+- Account name
+- Why the brief was created
+- 3-bullet summary
+- Claims that need review
+- Suggested next action
+- Link to the full brief
+- Requested decision: approve, edit, reject, or request more research
+
+Do not send automatically. Return as a draft.</code></pre>
+<p>Review request format:</p>
+<pre><code>Review request: [ACCOUNT NAME] action brief
+
+Why this exists:
+[ONE SENTENCE]
+
+Top signals:
+- [SIGNAL 1]
+- [SIGNAL 2]
+- [SIGNAL 3]
+
+Needs review:
+- [CLAIM OR RECOMMENDATION]
+
+Requested decision:
+Approve / Edit / Reject / More research needed
+
+Brief:
+[LINK]</code></pre>
+<h2>Optional: Add A CRM Update Draft</h2>
+<p>For the first pilot, draft CRM updates instead of writing automatically.</p>
+<p>Prompt:</p>
+<pre><code>Create a CRM update draft from this account action brief.
+
+Fields:
+- Account summary
+- Current signal
+- Suggested next step
+- Open question
+- Source URL
+- Review status
+
+Rules:
+- Keep it concise.
+- Do not include private reasoning that should not live in CRM.
+- Do not write to CRM automatically.
+- Mark as draft pending human approval.</code></pre>
+<h2>Optional: Build A Trusted Answer Workflow</h2>
+<p>Once the account brief works, you can reuse the same pattern for trusted answer experiences.</p>
+<p>Workflow:</p>
+<pre><code>/trusted-answer</code></pre>
+<p>Input:</p>
+<pre><code>User question
+Audience
+Required freshness
+Allowed sources
+Desired depth</code></pre>
+<p>Output:</p>
+<pre><code>Short answer
+Sources
+Confidence
+Follow-up questions
+Go-deeper path
+Review notes</code></pre>
+<p>Prompt:</p>
+<pre><code>Answer this question using source-backed web intelligence:
+
+[QUESTION]
+
+Return:
+- Short answer
+- Source-backed claims
+- Source URLs
+- Freshness notes
+- Confidence level
+- Follow-up questions
+- When to escalate to deeper research
+
+Rules:
+- If raw search results are enough, keep the answer short.
+- If synthesis is required, use Research.
+- If sources disagree, say so.
+- If evidence is weak, do not overstate the answer.</code></pre>
+<h2>API Implementation Path</h2>
+<p>Use this section when your audience includes developers or solutions engineers.</p>
+<p>You.com currently documents three core APIs for real-time web intelligence plus a finance-specific research API:</p>
+<ul>
+<li>Web Search API for structured web and news results.</li>
+<li>Contents API for clean Markdown or HTML from specified URLs.</li>
+<li>Research API for multi-step research and citation-backed synthesis.</li>
+<li>Finance Research API for citation-backed answers over a finance-optimized index.</li>
+</ul>
+<p>Recommended implementation pattern:</p>
+<pre><code>1. User submits workflow input in Hermes.
+2. Hermes calls Web Search to discover candidate sources.
+3. Hermes filters sources by relevance, freshness, and trust.
+4. Hermes calls Contents for the highest-value URLs.
+5. Hermes calls Research when synthesis is needed.
+6. Hermes optionally calls Finance Research for public-company financial context.
+7. Hermes maps API outputs into the account brief schema.
+8. Human reviews the output.
+9. Workflow stores the final card, metrics, and feedback.</code></pre>
+<p>Environment variable:</p>
+<pre><code>export YDC_API_KEY=&quot;your-key&quot;</code></pre>
+<p>Pseudo-code:</p>
+<pre><code>import os
+import requests
+
+YDC_API_KEY = os.environ[&quot;YDC_API_KEY&quot;]
+
+company_name = &quot;ServiceNow&quot;
+workflow_goal = &quot;Create a source-backed account action brief.&quot;
+
+headers = {
+    &quot;X-API-Key&quot;: YDC_API_KEY,
+    &quot;Content-Type&quot;: &quot;application/json&quot;,
+}
+
+# 1. Discover candidate sources.
+search_response = requests.get(
+    &quot;https://ydc-index.io/v1/search&quot;,
+    headers={&quot;X-API-Key&quot;: YDC_API_KEY},
+    params={
+        &quot;query&quot;: f&quot;{company_name} recent AI agents announcements partnerships&quot;,
+        &quot;count&quot;: 5,
+        &quot;freshness&quot;: &quot;year&quot;,
+    },
+)
+search_response.raise_for_status()
+search_results = search_response.json()
+
+# 2. Select URLs for source inspection.
+urls = [
+    result[&quot;url&quot;]
+    for result in search_results.get(&quot;results&quot;, {}).get(&quot;web&quot;, [])
+    if &quot;url&quot; in result
+][:3]
+
+# 3. Fetch clean page content for the best URLs.
+contents_response = requests.post(
+    &quot;https://ydc-index.io/v1/contents&quot;,
+    headers=headers,
+    json={
+        &quot;urls&quot;: urls,
+        &quot;formats&quot;: [&quot;markdown&quot;, &quot;metadata&quot;],
+        &quot;crawl_timeout&quot;: 15,
+        &quot;max_age&quot;: 86400,
+    },
+)
+contents_response.raise_for_status()
+pages = contents_response.json()
+
+# 4. Ask for deeper synthesis only when the workflow needs it.
+research_response = requests.post(
+    &quot;https://api.you.com/v1/research&quot;,
+    headers=headers,
+    json={
+        &quot;input&quot;: f&quot;What are the most important recent strategic signals for {company_name}, and what should an account team consider?&quot;,
+        &quot;research_effort&quot;: &quot;standard&quot;,
+        &quot;source_control&quot;: {
+            &quot;freshness&quot;: &quot;year&quot;,
+            &quot;boost_domains&quot;: [&quot;servicenow.com&quot;],
+        },
+    },
+)
+research_response.raise_for_status()
+research = research_response.json()
+
+# 5. Hand the structured evidence to Hermes.
+hermes_context = {
+    &quot;company_name&quot;: company_name,
+    &quot;workflow_goal&quot;: workflow_goal,
+    &quot;search_results&quot;: search_results,
+    &quot;source_pages&quot;: pages,
+    &quot;research&quot;: research,
+}
+
+# Hermes then maps this context into:
+# - Snapshot
+# - Current Signals
+# - Why This Account Might Care
+# - Suggested Actions
+# - Claims And Sources
+# - Review Notes</code></pre>
+<p>MCP implementation pattern:</p>
+<pre><code>If Hermes has MCP-based tool access, expose only the You.com tools this workflow needs:
+
+- you-search
+- you-contents
+- you-research
+
+Optional:
+- finance research tool or API connector for public-company financial context
+
+Admin rule:
+Expose discovery and reading tools first. Keep writeback tools draft-only until the pilot proves quality and review behavior.</code></pre>
+<h2>API Demo Video Module</h2>
+<p>Use this module to record a five- to seven-minute demo video.</p>
+<p>Video promise:</p>
+<pre><code>In this demo, we will turn one company name into a governed account workflow by calling the You.com APIs directly, then handing the evidence to Hermes.</code></pre>
+<p>Recommended screen sequence:</p>
+<pre><code>1. Show the workflow goal.
+2. Show the API key environment variable.
+3. Run Web Search and inspect structured results.
+4. Run Contents on one or more selected URLs.
+5. Run Research for synthesis.
+6. Optional: run Finance Research for public-company context.
+7. Show Hermes converting the API evidence into `/account-action-brief`.
+8. Show the review checklist and pilot card.</code></pre>
+<p>Narration:</p>
+<pre><code>The important thing to notice is that each API has a distinct job.
+
+Search discovers candidate sources.
+Contents reads the sources we choose.
+Research synthesizes the strategic answer with citations.
+Finance Research adds financial context when the account is public or market-sensitive.
+Hermes turns those API calls into a workflow that a team can run again.</code></pre>
+<p>Demo output to show:</p>
+<pre><code>Search:
+- title
+- URL
+- snippets
+- page_age or freshness metadata
+
+Contents:
+- URL
+- title
+- markdown
+- metadata
+
+Research:
+- output.content
+- output.sources
+
+Hermes:
+- final account action brief
+- claims and sources
+- review notes
+- workflow card</code></pre>
+<p>Fallback if an API call fails live:</p>
+<pre><code>If Search fails, show a saved JSON response and continue.
+If Contents fails for one URL, choose another URL from the Search response.
+If Research takes longer than expected, explain effort levels and cut to a saved response.
+If Finance Research is not relevant, skip it and say it is optional for public-company or financial workflows.</code></pre>
+<h2>Common Failure Modes</h2>
+<p>Watch for these:</p>
+<pre><code>The workflow sounds confident but has weak sources.
+Fix: Require source URLs and move weak claims to Review Notes.
+
+The workflow produces a beautiful brief that is too long.
+Fix: Enforce the output structure and word limits.
+
+The workflow mixes internal context with public claims.
+Fix: Label internal-only context and separate recommendations from facts.
+
+The workflow works for one company but fails for another.
+Fix: Test three accounts before piloting.
+
+The workflow creates action items nobody owns.
+Fix: Add owner, trigger, and next-step fields to the workflow card.
+
+The workflow is useful but not reusable.
+Fix: Package it as a Hermes skill or playbook with stable inputs and outputs.
+
+The workflow is too risky to expand.
+Fix: Keep the pilot draft-only and require human review before external use.</code></pre>
+<h2>Facilitator Script</h2>
+<p>Use this script to run the live tutorial.</p>
+<p>Opening:</p>
+<pre><code>Today we are not trying to build a perfect AI answer.
+We are building a reusable workflow.
+
+The difference is that a workflow has inputs, tools, review rules, owners, metrics, and a pilot plan.</code></pre>
+<p>Before the first run:</p>
+<pre><code>Pick one workflow your team already does manually.
+If you cannot name the manual workflow, do not automate it yet.</code></pre>
+<p>When sources appear:</p>
+<pre><code>Pause here.
+Before we improve the writing, we inspect the sources.
+The source inspection step is what separates a useful workflow from a confident guess.</code></pre>
+<p>When adding integrations:</p>
+<pre><code>Start read-only.
+Then allow draft-only outputs.
+Only add writeback after the team trusts the workflow and knows where review belongs.</code></pre>
+<p>When packaging:</p>
+<pre><code>The prompt is not the product.
+The reusable workflow is the product.
+Package the inputs, allowed tools, output format, review rules, owner, and success metrics.</code></pre>
+<p>Close:</p>
+<pre><code>Leave with one workflow card.
+Pick five users.
+Run the workflow for two weeks.
+Measure whether it saved time, improved quality, and created better next actions.</code></pre>
+<h2>Final Checklist</h2>
+<p>Before sharing or piloting your workflow, confirm:</p>
+<pre><code>[ ] The workflow has a clear job.
+[ ] Required inputs are minimal.
+[ ] Output format is stable.
+[ ] You.com sources are inspected.
+[ ] Factual claims have source URLs.
+[ ] Internal context is labeled.
+[ ] Allowed tools are explicit.
+[ ] Blocked data is explicit.
+[ ] Draft-only and write-enabled actions are separated.
+[ ] Human review gates are defined.
+[ ] The workflow is packaged in Hermes.
+[ ] Three test runs have been scored.
+[ ] Two-week pilot owner is assigned.
+[ ] Success metrics are defined.</code></pre>
+<h2>Source Notes For You.com</h2>
+<p>The You.com documentation describes three core APIs for real-time web intelligence: Web Search, Contents, and Research. The docs position Web Search as structured web and news results, Contents as clean Markdown or HTML retrieval from URLs, and Research as multi-step source-backed synthesis. You.com also documents MCP setup for connecting web search to MCP-compatible tools and a citation-grounding pattern based on source URLs, titles, and snippets.</p>
+<p>References:</p>
+<ul>
+<li>You.com Quickstart: https://you.com/docs/quickstart</li>
+<li>You.com Web Search API guide: https://you.com/docs/guides/search</li>
+<li>You.com Search API reference: https://you.com/docs/api-reference/search/v1-search</li>
+<li>You.com Contents API guide: https://you.com/docs/guides/contents</li>
+<li>You.com Contents API reference: https://you.com/docs/api-reference/contents</li>
+<li>You.com Research API guide: https://you.com/docs/guides/research</li>
+<li>You.com Research API reference: https://you.com/docs/api-reference/research/v1-research</li>
+<li>You.com Finance Research API guide: https://you.com/docs/guides/finance-research</li>
+<li>You.com Finance Research API reference: https://you.com/docs/api-reference/finance-research/v1-finance_research</li>
+<li>You.com MCP Server for Web Search: https://you.com/docs/capabilities/mcp-server-for-web-search</li>
+<li>You.com Grounding With Citations: https://you.com/docs/capabilities/grounding-llm-responses-with-citations</li>
+</ul></body></html>

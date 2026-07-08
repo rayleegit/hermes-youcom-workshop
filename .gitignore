@@ -1,0 +1,7 @@
+.DS_Store
+*.pyc
+__pycache__/
+
+# Workshop app secrets & local env
+workshop-app/.env
+workshop-app/.venv/

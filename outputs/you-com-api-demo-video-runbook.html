@@ -1,0 +1,206 @@
+<!doctype html><html><head><meta charset="utf-8"><title>You.com API Demo Video Runbook</title><style>
+body { font-family: Arial, sans-serif; color: #111; line-height: 1.45; }
+h1 { font-size: 28px; margin-bottom: 12px; }
+h2 { font-size: 20px; margin-top: 28px; margin-bottom: 8px; }
+h3 { font-size: 16px; margin-top: 20px; margin-bottom: 6px; }
+p, li { font-size: 11pt; }
+pre { background: #f6f8fa; padding: 12px; border: 1px solid #d0d7de; white-space: pre-wrap; font-size: 10pt; }
+code { font-family: Menlo, Consolas, monospace; }
+ul, ol { margin-top: 0; }
+</style></head><body><h1>You.com API Demo Video Runbook</h1>
+<h2>Purpose</h2>
+<p>Use this to record a short API-focused demo for the Hermes Workflow Studio workshop.</p>
+<p>The video should show the audience that You.com is not a black box. It is a set of APIs that Hermes can call in sequence: discover sources, read source content, synthesize with citations, optionally add financial context, and then package the result as a reusable workflow.</p>
+<h2>Recommended Length</h2>
+<p>5 to 7 minutes.</p>
+<h2>Demo Account</h2>
+<p>Use one account throughout the video.</p>
+<pre><code>Company: ServiceNow
+Workflow: /account-action-brief
+Audience: Account owner, customer success lead, partnerships lead, or marketer</code></pre>
+<h2>Setup Shot</h2>
+<p>Show the terminal or notebook.</p>
+<pre><code>export YDC_API_KEY=&quot;your-key&quot;</code></pre>
+<p>Narration:</p>
+<pre><code>We are going to build the evidence path before we show the final AI output. That means each API call has a job: Search discovers sources, Contents reads selected sources, Research synthesizes across sources, and Hermes packages the result into a reusable workflow.</code></pre>
+<h2>Scene 1: Web Search API</h2>
+<p>Goal: Find current candidate sources.</p>
+<p>Command:</p>
+<pre><code>curl -G https://ydc-index.io/v1/search \
+  -H &quot;X-API-Key: $YDC_API_KEY&quot; \
+  --data-urlencode &quot;query=ServiceNow recent AI agents announcements partnerships&quot; \
+  -d count=5 \
+  -d freshness=year</code></pre>
+<p>Callouts:</p>
+<ul>
+<li>Show <code>results.web</code>.</li>
+<li>Show any <code>results.news</code> if present.</li>
+<li>Show <code>title</code>, <code>url</code>, snippets, and <code>page_age</code>.</li>
+<li>Explain that snippets are already useful RAG context.</li>
+</ul>
+<p>Narration:</p>
+<pre><code>The Search API gives Hermes structured web and news results. This is the source discovery step. We are not asking the model to guess what is current. We are giving the workflow fresh candidate sources with titles, URLs, snippets, and freshness metadata.</code></pre>
+<h2>Scene 2: Search With Domain Control</h2>
+<p>Goal: Show governance and source control.</p>
+<p>Command:</p>
+<pre><code>curl -G https://ydc-index.io/v1/search \
+  -H &quot;X-API-Key: $YDC_API_KEY&quot; \
+  --data-urlencode &quot;query=ServiceNow AI agents announcements investor product strategy&quot; \
+  -d count=5 \
+  --data-urlencode &quot;include_domains=servicenow.com&quot;</code></pre>
+<p>Callouts:</p>
+<ul>
+<li><code>include_domains</code> is a strict allowlist.</li>
+<li><code>boost_domains</code> can prefer trusted sources without excluding others.</li>
+<li><code>exclude_domains</code> can block noisy or unsafe sources.</li>
+<li><code>freshness</code>, <code>country</code>, and <code>language</code> are also workflow controls.</li>
+</ul>
+<p>Narration:</p>
+<pre><code>These parameters are governance controls. For a workflow, source policy matters. We can decide whether Hermes should search broadly, prefer certain domains, or restrict itself to approved domains.</code></pre>
+<h2>Scene 3: Contents API</h2>
+<p>Goal: Read selected URLs as clean source text.</p>
+<p>Command:</p>
+<pre><code>curl -X POST https://ydc-index.io/v1/contents \
+  -H &quot;X-API-Key: $YDC_API_KEY&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{
+    &quot;urls&quot;: [
+      &quot;https://www.servicenow.com/company/media/press-room.html&quot;
+    ],
+    &quot;formats&quot;: [&quot;markdown&quot;, &quot;metadata&quot;],
+    &quot;crawl_timeout&quot;: 15,
+    &quot;max_age&quot;: 86400
+  }&#x27;</code></pre>
+<p>Callouts:</p>
+<ul>
+<li>Contents takes URLs, not a query.</li>
+<li>The response includes clean <code>markdown</code>, optional <code>html</code>, and <code>metadata</code>.</li>
+<li>Use this when snippets are not enough.</li>
+<li><code>max_age</code> helps control cache freshness.</li>
+</ul>
+<p>Narration:</p>
+<pre><code>Once Search gives us candidate URLs, Contents lets us read selected pages cleanly. This is the source inspection step. The workflow can now quote or summarize from page content rather than relying only on a snippet.</code></pre>
+<h2>Scene 4: Research API</h2>
+<p>Goal: Show citation-backed synthesis.</p>
+<p>Command:</p>
+<pre><code>curl -X POST https://api.you.com/v1/research \
+  -H &quot;X-API-Key: $YDC_API_KEY&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{
+    &quot;input&quot;: &quot;What are the most important recent strategic signals for ServiceNow, and what should an account team consider before a customer conversation?&quot;,
+    &quot;research_effort&quot;: &quot;standard&quot;,
+    &quot;source_control&quot;: {
+      &quot;freshness&quot;: &quot;year&quot;,
+      &quot;boost_domains&quot;: [&quot;servicenow.com&quot;]
+    }
+  }&#x27;</code></pre>
+<p>Callouts:</p>
+<ul>
+<li>Research runs multiple searches and synthesizes an answer.</li>
+<li><code>research_effort</code> controls speed/depth.</li>
+<li><code>source_control</code> can guide domains, freshness, and geography.</li>
+<li>Show <code>output.content</code> and <code>output.sources</code>.</li>
+</ul>
+<p>Narration:</p>
+<pre><code>Research is the synthesis layer. We use it when the question needs reasoning across sources. The key fields for the workflow are the answer content and the source list, because Hermes will map those into the brief and review checklist.</code></pre>
+<h2>Scene 5: Structured Research Output</h2>
+<p>Goal: Show API output that maps cleanly into a workflow card.</p>
+<p>Command:</p>
+<pre><code>curl -X POST https://api.you.com/v1/research \
+  -H &quot;X-API-Key: $YDC_API_KEY&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{
+    &quot;input&quot;: &quot;Extract the top three recent ServiceNow strategic signals for an enterprise account team.&quot;,
+    &quot;research_effort&quot;: &quot;standard&quot;,
+    &quot;output_schema&quot;: {
+      &quot;type&quot;: &quot;object&quot;,
+      &quot;properties&quot;: {
+        &quot;signals&quot;: {
+          &quot;type&quot;: &quot;array&quot;,
+          &quot;items&quot;: {
+            &quot;type&quot;: &quot;object&quot;,
+            &quot;properties&quot;: {
+              &quot;signal&quot;: { &quot;type&quot;: &quot;string&quot; },
+              &quot;why_it_matters&quot;: { &quot;type&quot;: &quot;string&quot; },
+              &quot;recommended_action&quot;: { &quot;type&quot;: &quot;string&quot; }
+            },
+            &quot;required&quot;: [&quot;signal&quot;, &quot;why_it_matters&quot;, &quot;recommended_action&quot;],
+            &quot;additionalProperties&quot;: false
+          }
+        }
+      },
+      &quot;required&quot;: [&quot;signals&quot;],
+      &quot;additionalProperties&quot;: false
+    }
+  }&#x27;</code></pre>
+<p>Callouts:</p>
+<ul>
+<li>Structured output is useful when another system needs predictable fields.</li>
+<li>Sources remain available separately in <code>output.sources</code>.</li>
+<li>This is the bridge into Hermes workflow packaging.</li>
+</ul>
+<p>Narration:</p>
+<pre><code>Structured output makes the API output easier to operationalize. Instead of only getting prose, we can ask for predictable fields that map into a workflow card, CRM draft, or review checklist.</code></pre>
+<h2>Scene 6: Optional Finance Research API</h2>
+<p>Goal: Show API breadth for public-company account intelligence.</p>
+<p>Command:</p>
+<pre><code>curl -X POST https://api.you.com/v1/finance_research \
+  -H &quot;X-API-Key: $YDC_API_KEY&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{
+    &quot;input&quot;: &quot;What financial or market signals should an enterprise account team know before meeting with ServiceNow?&quot;,
+    &quot;research_effort&quot;: &quot;deep&quot;
+  }&#x27;</code></pre>
+<p>Callouts:</p>
+<ul>
+<li>Use this only when financial context matters.</li>
+<li>The response shape is similar to Research.</li>
+<li>The index is finance-optimized.</li>
+<li>Treat citations as starting points for verification in regulated contexts.</li>
+</ul>
+<p>Narration:</p>
+<pre><code>Finance Research is optional in this workshop, but it is a strong add-on for public-company account briefs. It lets the same Hermes workflow pull in earnings, filings, market context, and financially relevant signals.</code></pre>
+<h2>Scene 7: Hermes Workflow Packaging</h2>
+<p>Goal: Show the same evidence becoming a reusable workflow.</p>
+<p>Prompt:</p>
+<pre><code>Create `/account-action-brief` using the API evidence below.
+
+Use the Search results for source discovery.
+Use the Contents output for source inspection.
+Use the Research output for synthesis.
+Use Finance Research only as optional public-company context.
+
+Return:
+- Snapshot
+- Current Signals
+- Why This Account Might Care
+- Suggested Actions
+- Claims And Sources
+- Review Notes
+- Workflow Card</code></pre>
+<p>Narration:</p>
+<pre><code>This is where Hermes matters. The APIs provide live intelligence. Hermes turns that intelligence into a workflow with inputs, tools, output schema, review rules, and a pilot plan.</code></pre>
+<h2>Closing Shot</h2>
+<p>Show the final workflow card.</p>
+<p>Closing line:</p>
+<pre><code>The output is useful, but the workflow is the product. Once the API path works, package it, govern it, and pilot it with a small team for two weeks.</code></pre>
+<h2>Backup Plan</h2>
+<p>Prepare saved JSON responses for:</p>
+<ul>
+<li>Search</li>
+<li>Contents</li>
+<li>Research</li>
+<li>Finance Research</li>
+</ul>
+<p>Use the saved responses if a live API call is slow, rate-limited, or blocked by network setup.</p>
+<h2>Assets To Prepare</h2>
+<ul>
+<li>Terminal or notebook with commands ready.</li>
+<li>API key set in the environment.</li>
+<li>One saved Search response.</li>
+<li>One saved Contents response.</li>
+<li>One saved Research response.</li>
+<li>Optional saved Finance Research response.</li>
+<li>Hermes prompt ready to paste.</li>
+<li>Final workflow card ready to display.</li>
+</ul></body></html>

@@ -1,0 +1,44 @@
+{
+  "results": {
+    "web": [
+      {
+        "title": "AMD Expands Instinct MI350 Series for Enterprise AI Data Centers",
+        "url": "https://www.amd.com/en/newsroom/press-releases/2025-06-12-amd-expands-instinct-mi350-series.html",
+        "description": "AMD unveiled next-generation Instinct accelerators aimed at large-scale AI training and inference workloads in enterprise and cloud data centers.",
+        "page_age": "2 weeks ago"
+      },
+      {
+        "title": "AMD Q1 2025 Earnings: Data Center Revenue Surges on AI Demand",
+        "url": "https://ir.amd.com/news-events/press-releases/detail/1234/amd-reports-first-quarter-2025-financial-results",
+        "description": "AMD reported strong data center growth driven by Instinct GPU adoption and EPYC CPU wins in cloud and enterprise accounts.",
+        "page_age": "1 month ago"
+      },
+      {
+        "title": "AMD and Microsoft Expand Azure AI Infrastructure Partnership",
+        "url": "https://www.amd.com/en/newsroom/press-releases/2025-05-20-amd-microsoft-azure-ai-partnership.html",
+        "description": "AMD and Microsoft announced expanded collaboration to deliver AI-optimized infrastructure on Azure using Instinct and EPYC platforms.",
+        "page_age": "3 weeks ago"
+      },
+      {
+        "title": "AMD Advances Open AI Software Stack with ROCm Updates",
+        "url": "https://www.amd.com/en/products/software/rocm.html",
+        "description": "ROCm software updates improve model portability and performance for developers deploying AI workloads on AMD hardware.",
+        "page_age": "1 week ago"
+      },
+      {
+        "title": "Analysts Track AMD Share Gains in Server CPU and AI Accelerator Markets",
+        "url": "https://example-news.com/amd-server-ai-market-share",
+        "description": "Industry analysts note competitive momentum for AMD in data center CPUs and AI accelerators versus incumbent vendors.",
+        "page_age": "5 days ago"
+      }
+    ],
+    "news": [
+      {
+        "title": "AMD Stock Rises on Strong AI Data Center Outlook",
+        "url": "https://example-news.com/amd-ai-data-center-outlook",
+        "description": "Investors focus on AMD's Instinct roadmap and hyperscaler adoption as key drivers for near-term growth.",
+        "page_age": "4 days ago"
+      }
+    ]
+  }
+}
