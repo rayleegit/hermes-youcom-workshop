@@ -20,6 +20,8 @@ Open **http://localhost:8080** in your browser.
 **You.com APIs in session:** https://you.com/platform (platform playground — facilitator-led)  
 **Hermes desktop app?** See `HERMES-DESKTOP-SETUP.md` — everyone installs live via `install.sh`.  
 **Google Slides (60-min)?** Import `60-min-workshop-slides.pptx` — see `60-MIN-GOOGLE-SLIDES.md`.  
+**Presenter walkthrough:** `./walk_slides.py` — interactive slide script; see `SLIDE-PRESENTER-SCRIPT.md`.  
+**Playground examples:** `PLAYGROUND-API-WALKTHROUGH.md` — queries, parameters, curl, response fields.
 **Full 18-step deep dive?** http://localhost:8080?full=1 (self-paced reference)
 
 The app works immediately in **demo mode** (saved sample data). For live API calls:

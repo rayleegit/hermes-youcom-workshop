@@ -346,7 +346,7 @@ def build() -> Path:
             "5. View Code — show curl/Python snippet (optional)",
             "6. Bridge: 'In Hermes, MCP runs this chain automatically'",
         ],
-        subtitle="3–18 min · facilitator leads; attendees follow along",
+        subtitle="3–18 min · facilitator leads; see PLAYGROUND-API-WALKTHROUGH.md for queries + params",
         title_color=YOU,
     )
 
@@ -487,9 +487,10 @@ def build() -> Path:
         [
             "You.com Playground: https://you.com/platform",
             "Workshop app: http://localhost:8080",
+            "PLAYGROUND-API-WALKTHROUGH.md · SLIDE-PRESENTER-SCRIPT.md",
             "FACILITATOR-60MIN.md · HERMES-DESKTOP-SETUP.md",
-            "COMMUNITY-CONTINUATION.md (Discord only)",
-            "Preflight: ./preflight.sh",
+            "GitHub: github.com/rayleegit/hermes-youcom-workshop",
+            "Discord: discord.gg/2C4WgryxSD",
         ],
     )
 

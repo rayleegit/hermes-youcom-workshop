@@ -1,6 +1,7 @@
 # 60-Minute Workshop — Facilitator Run-of-Show
 
 **Slides:** `60-min-workshop-slides.pptx` (import to Google Slides) — **primary script + copy-paste**  
+**Presenter script:** `./walk_slides.py` or `SLIDE-PRESENTER-SCRIPT.md` — say/do for each slide  
 **App:** http://localhost:8080 — govern, workflow card, agent build lab (reference)  
 **You.com APIs:** https://you.com/platform → **API Playground** (facilitator-led walkthrough)  
 **Define inputs:** in **Hermes** during install + test — not the workshop app
@@ -22,7 +23,7 @@
 | Min | Step | Action |
 |-----|------|--------|
 | 0–3 | Welcome | Story on slides. Demo company in playground: **AMD**. |
-| 3–18 | **You.com Playground** | Open https://you.com/platform. Walk Search → Contents → Research. **Slides 5–11** (APIs + MCP bridge). |
+| 3–18 | **You.com Playground** | Open https://you.com/platform. **PLAYGROUND-API-WALKTHROUGH.md** = queries + params cheat sheet. Slides 5–11. |
 | 18–23 | Govern | App: review gates. Reference **slide 12** (skills + connectors) and **slide 13**. |
 | 23–26 | Workflow Card | Generate → Download (optional if short on time). |
 | 26–52 | **Hermes Live Setup** | `install.sh` → MCP → define inputs → test. **Slides 14–18**. |
@@ -33,15 +34,18 @@
 
 ## You.com Platform Playground (3–18 min)
 
+**Cheat sheet:** `PLAYGROUND-API-WALKTHROUGH.md` — queries, parameters, curl, response fields, goal-specific examples.
+
 **Open:** https://you.com/platform → API Playground
 
 Use **AMD** as the demo company. Attendees pick their own company and **brief goal** later when they run `/account-action-brief` in Hermes.
 
-| API | What to show | Example |
-|-----|--------------|---------|
-| **Search** | Structured JSON — titles, URLs, snippets | `AMD data center Instinct MI350 earnings` |
-| **Contents** | Markdown from a URL from Search | AMD press release URL |
-| **Research** | `output.content` + `output.sources` | "What are key AMD strategic signals for a renewal conversation?" |
+| API | What to show | Example query / params |
+|-----|--------------|------------------------|
+| **Search** | Structured JSON — titles, URLs, snippets, page_age | `AMD data center Instinct MI350 earnings` · count=5 · freshness=year |
+| **Search (governance)** | include_domains allowlist | Same query + `include_domains=amd.com` |
+| **Contents** | Markdown from Search URL | urls[] · formats=[markdown,metadata] · crawl_timeout=15 |
+| **Research** | output.content + output.sources | Renewal input + research_effort=standard · boost_domains=[amd.com] |
 
 **Say:** "We run APIs manually in the playground so you see each step. Slides 8–9 show how MCP automates the same chain in Hermes."
 

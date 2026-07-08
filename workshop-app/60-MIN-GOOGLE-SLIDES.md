@@ -21,6 +21,10 @@ python build_60min_slides.py
 
 Output: **21 slides**
 
+**Companion docs (not on slides — facilitator use):**
+- `PLAYGROUND-API-WALKTHROUGH.md` — full queries, parameters, curl, goal-specific examples
+- `SLIDE-PRESENTER-SCRIPT.md` / `./walk_slides.py` — detailed say/do per slide
+
 ---
 
 ## Slide list (21)
